@@ -28,13 +28,13 @@ public : 			// 4 public member functions
    cout  <<  value  <<  endl;
   }
 
-   void Initialize(char value )
+   void Initialize(char FIDN )
   {
-    this->value  =  value;              
+    this->FIDN  =  value;              
   } 	           
 
 
 private :			// 1 private data member
-	char value; 		// could be any type 
+	char FIDN; 		// could be any type 
 } ;
 #endif	
