@@ -101,3 +101,25 @@ void UnsortedListByArray::GetNextItem ( ItemType&  item )
   currentPos++  ;
   item = info [currentPos] ;
 }
+
+bool NewInsertItem (ItemType newItem)
+{
+    //checking whether the item is in the list
+    //use length to figure out for loop 
+    for ()
+    {
+        if()// found return true 
+        {
+            return true;
+        }
+        else
+        {
+            //inster the new item here
+        }
+}
+void SplitList (ItemType item, UnsortedListByArray & listOne, UnsortedListByArray & listT    wo)
+{
+}
+void Print ()
+{
+}

@@ -14,7 +14,9 @@ public :
   void MakeEmpty( );        // 8 public member functions
   void InsertItem( ItemType  item ); 	
   void DeleteItem( ItemType  item ); 	
-
+  bool NewInsertItem (ItemType newItem);
+  void SplitList (ItemType item, UnsortedListByArray & listOne, UnsortedListByArray & listTwo);
+  void Print ();
   bool IsFull( ) const;
   bool IsEmpty( ) const;              
   int  GetLength( ) const;  // returns length of list
