@@ -108,13 +108,15 @@ bool NewInsertItem (ItemType newItem)
     //use length to figure out for loop 
     for (int i=0; i<length; i++ )
     {
-        if(CompareTo (newItem//see what other data type variable is needed)// found return true 
+        if(CompareTo (newItem=item)//see what other data type variable is needed)// found return true 
         {
-            return true;
+            return false;
         }
         else
         {
             //inster the new item here
+            newItem = i;
+            return true; 
         }
 }
 void SplitList (ItemType item, UnsortedListByArray & listOne, UnsortedListByArray & listT    wo)
