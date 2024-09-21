@@ -34,6 +34,6 @@ string Student::getLN() const
     
 friend ostream& operator<<(ostream& os, const Student& s) //output: "Hanks,Tom: A000"
 {
-    cout << s.LN << ", "<< s.FN<< ":"<< s.FIDN;
+    os<< s.LN << ", "<< s.FN<< ":"<< s.FIDN;
     
 }
