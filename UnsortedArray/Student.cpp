@@ -5,29 +5,29 @@ Student::Student()
 {
 
 }
-Studnet::Student(string fidn)
+Student::Student(string fidn)
 {
     FIDN=fidn;
 } 
-void Studnet::setFN(string fn)
+void Student::setFN(string fn)
 {
     FN=fn;
 }
-void Studnet::setLN(string ln)
+void Student::setLN(string ln)
 {
     LN=ln;
 }
     
-string Studnet::getFIDN() const
+string Student::getFIDN() const
 {
     return FIDN;
 }
 
-string Studnet::getFN() const
+string Student::getFN() const
 {
     return FN;
 }
-string Studnet::getLN() const
+string Student::getLN() const
 {
     return LN;
 }
