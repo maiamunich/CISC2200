@@ -3,12 +3,13 @@
 #define ITEMTYPE_H
 
 #include <iostream>
+#include "Student.h"
 using namespace std;
 
-const int  MAX_ITEM = 5;
+const int  MAX_ITEM = 6;
 enum  RelationType { LESS, EQUAL, GREATER };
 
-class  ItemType		// declares class data type
+class  ItemType	: public Student	// declares class data type
 {						
 public : 			// 4 public member functions
 
@@ -25,16 +26,17 @@ public : 			// 4 public member functions
 
   void Print( ) const 
   {
-   cout  <<  value  <<  endl;
+   cout  <<  FIDN << ": ,"<< FN<< " ,"<< LN  <<  endl;
   }
 
-   void Initialize(char FIDN )
+   void Initialize(string value )
   {
-    this->FIDN  =  value;              
+    this->FIDN  =  value;  
+    this->value = value;            
   } 	           
 
 
 private :			// 1 private data member
-	char FIDN; 		// could be any type 
+	string value; 		// could be any type 
 } ;
 #endif	
