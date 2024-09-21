@@ -32,7 +32,7 @@ string Student::getLN() const
     return LN;
 }
     
-friend Student::ostream& operator<<(ostream& os, const Student& s) //output: "Hanks,Tom: A000"
+friend ostream& Student::operator<<(ostream& os, const Student& s) //output: "Hanks,Tom: A000"
 {
     os<< s.LN << ", "<< s.FN<< ":"<< s.FIDN;
     return os;
