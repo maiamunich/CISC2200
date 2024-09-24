@@ -108,7 +108,7 @@ bool NewInsertItem (ItemType newItem)
     //use length to figure out for loop 
     for (int i=0; i<length; i++ )
     {
-        if(CompareTo (newItem=item)//see what other data type variable is needed)// found return true 
+        if(CompareTo (newItem=item))//see what other data type variable is needed)// found return true 
         {
             return false;
         }
