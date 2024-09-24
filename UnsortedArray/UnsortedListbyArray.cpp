@@ -118,6 +118,7 @@ bool NewInsertItem (ItemType newItem)
             newItem = i;
             return true; 
         }
+    }
 }
 void SplitList (ItemType item, UnsortedListByArray & listOne, UnsortedListByArray & listT    wo)
 {
