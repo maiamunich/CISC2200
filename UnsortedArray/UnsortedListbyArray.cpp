@@ -104,6 +104,8 @@ void UnsortedListByArray::GetNextItem ( ItemType&  item )
 
 bool NewInsertItem (ItemType newItem)
 {
+    int length;
+    int item;
     //checking whether the item is in the list
     //use length to figure out for loop 
     for (int i=0; i<length; i++ )
@@ -115,7 +117,7 @@ bool NewInsertItem (ItemType newItem)
         else
         {
             //inster the new item here
-            newItem = i;
+            newItem == i;
             return true; 
         }
     }
