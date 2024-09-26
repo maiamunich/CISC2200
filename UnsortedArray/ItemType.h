@@ -29,13 +29,15 @@ public : 			// 4 public member functions
    cout  <<  getFIDN() << ": ,"<< getFN()<< " ,"<< getLN()  <<  endl;
   }
 
-   void Initialize(string FIDN )
+   void Initialize(string FIDN)
   {
-    this->value  =  FIDN;              
+    this->value  = FIDN;
+    setFIDN(FIDN);              
   } 	           
 
 
 private :			// 1 private data member
-	string value; 		// could be any type 
+	string value;
+   		// could be any type 
 } ;
 #endif	

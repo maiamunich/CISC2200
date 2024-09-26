@@ -104,12 +104,12 @@ void UnsortedListByArray::GetNextItem ( ItemType&  item )
 
 bool NewInsertItem (ItemType newItem)
 {
-    int location = 0;
+    int length = 0;
     int item;
 
     //checking whether the item is in the list
     //use length to figure out for loop 
-    for (int i=0; i<location; i++ )
+    for (int i=0; i<length; i++ )
     {
         if(item.CompareTo == (info[location]))//see what other data type variable is needed)// found return true 
         {
