@@ -31,8 +31,7 @@ public : 			// 4 public member functions
 
    void Initialize(string FIDN)
   {
-    this->value  = FIDN;
-    setFIDN(FIDN);              
+    this->value  = FIDN;             
   } 	           
 
 

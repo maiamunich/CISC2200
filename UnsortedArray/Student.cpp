@@ -7,15 +7,15 @@ Student::Student()
 }
 Student::Student(string fidn)
 {
-    FIDN=fidn;
+   this->FIDN=fidn;
 } 
 void Student::setFN(string fn)
 {
-    FN=fn;
+    this->FN=fn;
 }
 void Student::setLN(string ln)
 {
-    LN=ln;
+    this->LN=ln;
 }
     
 string Student::getFIDN() const
