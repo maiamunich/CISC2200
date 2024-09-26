@@ -1,7 +1,7 @@
 #include "ItemType.h"
 #include "UnsortedListbyArray.h"
 
-void PrintList( UnsortedType& list)
+void PrintList( UnsortedListByArray& list)
 // Pre:  list has been initialized.         
 // Post: Each component in list has been written. 
 // 
@@ -20,7 +20,7 @@ void PrintList( UnsortedType& list)
 
 int main(){
 
-    UnsortedType listOne;
+    UnsortedListByArray listOne;
 
     ItemType x;
     x.Initialize(5);
