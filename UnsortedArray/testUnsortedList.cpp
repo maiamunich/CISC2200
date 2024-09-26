@@ -23,11 +23,11 @@ int main(){
     UnsortedListByArray listOne;
 
     ItemType x;
-    x.Initialize(5);
+    x.Initialize("5");
     listOne.InsertItem(x);
 
     ItemType y;
-    y.Initialize(6);
+    y.Initialize("6");
     listOne.InsertItem(y);
 
     PrintList(listOne);
