@@ -1,5 +1,5 @@
 #include "ItemType.h"
-#include "UnsortedType.h"
+#include "UnsortedListbyArray.h"
 
 void PrintList( UnsortedType& list)
 // Pre:  list has been initialized.         
