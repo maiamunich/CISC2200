@@ -122,7 +122,22 @@ bool UnsortedListByArray::NewInsertItem (ItemType newItem)
 }
 void UnsortedListByArray::SplitList (ItemType item, UnsortedListByArray & listOne, UnsortedListByArray & listTwo)
 {
+  for (int i=0; i<length; i++)
+  {
+    if(info[i].Comparedto(item)==GREATER)
+    {
+      listTwo.NewInsertItem(info[i]);
+    }
+    else
+    {
+      listOne.NewInsertItem(info[i]);
+    }
+  }
 }
 void UnsortedListByArray::Print ()
 {
+  for(int i=0; i< length; i++)
+  {
+    info[i].Print();
+  }
 }
