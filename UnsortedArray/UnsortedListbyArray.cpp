@@ -108,7 +108,7 @@ bool UnsortedListByArray::NewInsertItem (ItemType newItem)
     //use length to figure out for loop 
     for (int i=0; i<length; i++ )
     {
-        if(newItem.CompareTo(info[i])==EQUAL)//see what other data type variable is needed)// found return true 
+        if(newItem.ComparedTo(info[i])==EQUAL)//see what other data type variable is needed)// found return true 
         {
           cout << "List already has item" << endl;
           return false;
@@ -123,7 +123,7 @@ bool UnsortedListByArray::NewInsertItem (ItemType newItem)
         }
     }
 }
-void UnsortedListByArray::SplitList (ItemType item, UnsortedListByArray & listOne, UnsortedListByArray & listT    wo)
+void UnsortedListByArray::SplitList (ItemType item, UnsortedListByArray & listOne, UnsortedListByArray & listTwo)
 {
 }
 void UnsortedListByArray::Print ()
