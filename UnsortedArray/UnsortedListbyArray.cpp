@@ -102,31 +102,30 @@ void UnsortedListByArray::GetNextItem ( ItemType&  item )
   item = info [currentPos] ;
 }
 
-bool NewInsertItem (ItemType newItem)
+bool UnsortedListByArray::NewInsertItem (ItemType newItem)
 {
-    int length = 0;
-    int item;
-
     //checking whether the item is in the list
     //use length to figure out for loop 
     for (int i=0; i<length; i++ )
     {
-        if(item.CompareTo == (info[location]))//see what other data type variable is needed)// found return true 
+        if(newItem.CompareTo(info[i])==EQUAL)//see what other data type variable is needed)// found return true 
         {
-            return false;
           cout << "List already has item" << endl;
+          return false;
         }
         else
         {
             //inster the new item here
-            newItem == i;
+            length++; 
+            info[length]=newItem;
+            cout<<"New Item has been insterted"<<endl;
             return true; 
         }
     }
 }
-void SplitList (ItemType item, UnsortedListByArray & listOne, UnsortedListByArray & listT    wo)
+void UnsortedListByArray::SplitList (ItemType item, UnsortedListByArray & listOne, UnsortedListByArray & listT    wo)
 {
 }
-void Print ()
+void UnsortedListByArray::Print ()
 {
 }
