@@ -124,7 +124,7 @@ void UnsortedListByArray::SplitList (ItemType item, UnsortedListByArray & listOn
 {
   for (int i=0; i<length; i++)
   {
-    if(info[i].Comparedto(item)==GREATER)
+    if(info[i].ComparedTo(item)==GREATER)
     {
       listTwo.NewInsertItem(info[i]);
     }
