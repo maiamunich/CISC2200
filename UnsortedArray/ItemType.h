@@ -29,10 +29,9 @@ public : 			// 4 public member functions
    cout  <<  FIDN << ": ,"<< FN<< " ,"<< LN  <<  endl;
   }
 
-   void Initialize(string value )
+   void Initialize(string FIDN )
   {
-    this->FIDN  =  value;  
-    this->value = value;            
+    this->value  =  FIDN;              
   } 	           
 
 
