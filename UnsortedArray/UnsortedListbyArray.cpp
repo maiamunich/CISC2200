@@ -104,15 +104,17 @@ void UnsortedListByArray::GetNextItem ( ItemType&  item )
 
 bool NewInsertItem (ItemType newItem)
 {
-    int length;
+    int location = 0;
     int item;
+
     //checking whether the item is in the list
     //use length to figure out for loop 
-    for (int i=0; i<length; i++ )
+    for (int i=0; i<location; i++ )
     {
-        if(CompareTo (newItem=item))//see what other data type variable is needed)// found return true 
+        if(item.CompareTo == (info[location]))//see what other data type variable is needed)// found return true 
         {
             return false;
+          cout << "List already has item" << endl;
         }
         else
         {
