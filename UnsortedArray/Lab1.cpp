@@ -44,7 +44,7 @@ int main()
 
         if(studentList.GetLength()<MAX_ITEM)
         {
-            cout << "Do you want to enter another student? (Y/N): ";
+            cout << "Do you want to enter another student? (Y/N): "<<endl;
             cin >> answer; 
         }
         else
@@ -77,7 +77,7 @@ int main()
     cout<<endl;
     cout<<"After split, original list is : "<<endl; 
     studentList.Print();
-    
+
 
 
     
