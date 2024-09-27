@@ -32,23 +32,39 @@ int main()
         newItem.setFN(fn);
         newItem.setLN(ln);
     
-        if(studentList.InsertItem(newItem))
+        bool found = false; 
+        ItemType currentPos; 
+
+        for (int i = 0; i < studentList.GetLength(); i++)
         {
+            studentList.RetrieveItem(currentPos, i);
+            if(newItem.ComparedTo(currentPos)==EQUAL)
+            { 
+                found = true; 
+                break;
+            }
+        }
+        
+        if(found)
+        {
+            cout << "The item is not inserted since it is a duplicate"<<endl;
+        }
+        else 
+        {
+            studentList.NewInsertItem(newItem);
             cout << "A new student has been inserted." << endl; 
         }
-        else
-        {
-            cout <<"Student already exisit in the list or list is full."<<endl;
-        }
+
         if(studentList.GetLength()<MAX_ITEM)
         {
             cout << "Do you want to enter another student? (Y/N): ";
             cin >> answer; 
         }
+        else
         {
-            cout<< "Maximum number of students reached. Cannot add more students."<<endl;
+           cout<< "Maximum number of students reached. Cannot add more students."<<endl;
         }
-        cout<<"A new item is inserted"<< endl; 
+
     }
 
     // let user know that a new item has been inserted
