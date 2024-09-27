@@ -44,6 +44,7 @@ int main()
 
         if(studentList.GetLength()<MAX_ITEM)
         {
+            cout << endl;
             cout << "Do you want to enter another student? (Y/N): "<<endl;
             cin >> answer; 
         }
