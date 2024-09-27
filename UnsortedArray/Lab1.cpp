@@ -16,7 +16,7 @@ int main()
 
     while ((answer == "y" || answer == "Y")&& studentList.GetLength() < MAX_ITEM)
     {
-        sttring fidn, fn, ln;
+        string fidn, fn, ln;
         //inside of the while loop
         // read off students No. (make sure that this counts for if a student is repeated)
         cout<<"Student No. "<< (studentList.GetLength() +1) << ":"<<endl;//(What data type do i put here )
@@ -34,7 +34,7 @@ int main()
     
         if(studentList.InsertItem(newItem))
         {
-            "A new student has been inserted." << endl; 
+            cout << "A new student has been inserted." << endl; 
         }
         else
         {
