@@ -37,7 +37,7 @@ int main()
 
         for (int i = 0; i < studentList.GetLength(); i++)
         {
-            studentList.RetrieveItem(currentPos, i);
+            studentList.RetrieveItem(currentPos, found);
             if(newItem.ComparedTo(currentPos)==EQUAL)
             { 
                 found = true; 
