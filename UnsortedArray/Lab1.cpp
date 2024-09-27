@@ -31,28 +31,15 @@ int main()
         newItem.Initialize(fidn);
         newItem.setFN(fn);
         newItem.setLN(ln);
-    
-        bool found = false; 
-        ItemType currentPos; 
-
-        for (int i = 0; i < studentList.GetLength(); i++)
-        {
-            studentList.RetrieveItem(currentPos, found);
-            if(newItem.ComparedTo(currentPos)==EQUAL)
-            { 
-                found = true; 
-                break;
-            }
-        }
         
-        if(found)
+        if(studentList.NewInsertItem(newItem))
         {
-            cout << "The item is not inserted since it is a duplicate"<<endl;
+            
+            cout << "A new student has been inserted." << endl;
         }
         else 
         {
-            studentList.NewInsertItem(newItem);
-            cout << "A new student has been inserted." << endl; 
+            cout << "The item is not inserted since it is a duplicate"<<endl;       
         }
 
         if(studentList.GetLength()<MAX_ITEM)
