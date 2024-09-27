@@ -1,4 +1,5 @@
 #include "Student.h"
+#include "UnsortedListbyArray.h"
 
 int main()
 {
@@ -16,11 +17,11 @@ students is 6. Type "Y" to begin/continue, type "N" to stop"<< endl;
         // read off students No. (make sure that this counts for if a student is repeated)
         cout<<"Student No. "<< //(What data type do i put here )<< ":"<<endl;
         cout<< "Student FIDN"<< endl;
-        cin>> FIDN; //could this and the other two be setFIDN and SetFN and SetLN
+        cin>> setFIDN(); //could this and the other two be setFIDN and SetFN and SetLN
         cout<< "Student First Name:"<< endl; 
-        cin>> FN; 
+        cin>> setFN(); 
         cout<< "Student Last Name:"<< endl;
-        cin>>LN;
+        cin>> setLN();
         //students fidn
         //students first name 
         //students last name
