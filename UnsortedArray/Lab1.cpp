@@ -15,7 +15,7 @@ int main()
         // read off students No. (make sure that this counts for if a student is repeated)
         cout<<"Student No. "<<  ":"<<endl;//(What data type do i put here )
         cout<< "Student FIDN"<< endl;
-        cin>> Student::Student(); //could this and the other two be setFIDN and SetFN and SetLN
+        cin>> Student::Student(FIDN); //could this and the other two be setFIDN and SetFN and SetLN
         cout<< "Student First Name:"<< endl; 
         cin>> Student::setFN(); 
         cout<< "Student Last Name:"<< endl;
