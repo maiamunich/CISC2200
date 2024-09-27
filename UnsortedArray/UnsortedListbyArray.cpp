@@ -110,7 +110,7 @@ bool UnsortedListByArray::NewInsertItem (ItemType newItem)
     {
         if(newItem.ComparedTo(info[i])==EQUAL)//see what other data type variable is needed)// found return true 
         {
-          cout << "List already has item" << endl;
+          cout << "The item is not inserted since it is a duplicate." << endl;
           return false;
         }
     }
