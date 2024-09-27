@@ -39,7 +39,7 @@ int main()
         }
         else 
         {
-            cout << endl;       
+            cout << "BITCH YOU BETTER RUNN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl;       
         }
 
         if(studentList.GetLength()<MAX_ITEM)
