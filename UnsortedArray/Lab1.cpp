@@ -7,8 +7,8 @@ using namespace std;
 
 int main()
 {
-    UnsortedListByArray studentList; //Create an UnsortedListByArray Object
-    string answer;
+    UnsortedListByArray studentList, listOne, listTwo; //Create an UnsortedListByArray Object
+    string answer, key;
     int MAX_ITEM = 6; 
     cout<< "Please follow the prompt to enter students information, maximum number of students is 6. Type 'Y' to begin/continue, type 'N' to stop"<< endl; 
     cin >> answer;
@@ -56,7 +56,30 @@ int main()
 
     cout << "You have entered "<< MAX_ITEM<< " students into the database"<< endl;
     cout << "This is the list"<< endl;
-    studentList.Print()
+    studentList.Print();
+
+    cout << "Please enter the FIDN as the key vlue to split the student list: "<< endl; 
+    cin >> key;
+    
+    ItemType item;
+    item.Initialize(key);
+    studentList.SplitList (item ,listOne ,listTwo);
+
+    cout << "Split the previous list with,: "<< key <<endl;
+    cout << "After split:"<<endl;
+    cout << "list one is : "<< endl;
+    listOne.Print();
+    cout<<endl; 
+    cout<<endl;
+    cout<< "list two is : "<<endl; 
+    listTwo.Print();
+    cout<<endl; 
+    cout<<endl;
+    cout<<"After split, original list is : "<<endl; 
+    studentList.Print();
+    
+
+
     
     // let user know that a new item has been inserted
     //let user know if item was not inserted since it was a duplicate
