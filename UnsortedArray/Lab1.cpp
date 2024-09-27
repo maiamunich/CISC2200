@@ -42,6 +42,8 @@ int main()
             cout << "BITCH YOU BETTER RUNN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl;       
         }
 
+        studentList.Print();
+
         if(studentList.GetLength()<MAX_ITEM)
         {
             cout << endl;
