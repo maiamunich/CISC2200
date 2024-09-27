@@ -12,19 +12,19 @@ students is 6. Type "Y" to begin/continue, type "N" to stop"<< endl;
     while (answer == "y" || "Y")
     {
 
-    //inside of the while loop
-    // read off students No. (make sure that this counts for if a student is repeated)
-    cout<<"Student No. "<< //(What data type do i put here )<< ":"<<endl;
-    cout<< "Student FIDN"<< endl;
-    cin>> FIDN;
-    cout<< "Student First Name:"<< endl; 
-    cin>> FN; 
-    cout<< "Student Last Name:"<< endl;
-    cin>>LN;
-    //students fidn
-    //students first name 
-    //students last name
-    cout<<"A new item is inserted"<< endl; 
+        //inside of the while loop
+        // read off students No. (make sure that this counts for if a student is repeated)
+        cout<<"Student No. "<< //(What data type do i put here )<< ":"<<endl;
+        cout<< "Student FIDN"<< endl;
+        cin>> FIDN;
+        cout<< "Student First Name:"<< endl; 
+        cin>> FN; 
+        cout<< "Student Last Name:"<< endl;
+        cin>>LN;
+        //students fidn
+        //students first name 
+        //students last name
+        cout<<"A new item is inserted"<< endl; 
     }
 
     // let user know that a new item has been inserted
