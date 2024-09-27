@@ -26,6 +26,7 @@ public : 			// 4 public member functions
 
   void Print( ) const 
   {
+  cout << "wtf is going on here "<< endl;
    cout  << getLN() <<" ,"<< getFN()<< " : " <<value <<endl; 
   }
 
