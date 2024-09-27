@@ -26,7 +26,7 @@ public : 			// 4 public member functions
 
   void Print( ) const 
   {
-   cout  << value << ": ,"<< getFN()<< " ,"<< getLN()  <<  endl;
+   cout  << getLN() <<" ,"<< getFN()<< " : " <<value <<endl; 
   }
 
    void Initialize(string FIDN)

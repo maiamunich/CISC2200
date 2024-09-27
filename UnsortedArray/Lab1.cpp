@@ -49,11 +49,15 @@ int main()
         }
         else
         {
-           cout<< "Maximum number of students reached. Cannot add more students."<<endl;
+           cout<< "The list is full, you have to stop."<<endl;
         }
 
     }
 
+    cout << "You have entered "<< MAX_ITEM<< " students into the database"<< endl;
+    cout << "This is the list"<< endl;
+    studentList.Print()
+    
     // let user know that a new item has been inserted
     //let user know if item was not inserted since it was a duplicate
 //out side while loop 
