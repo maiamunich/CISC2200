@@ -14,7 +14,7 @@ int main()
 
         //inside of the while loop
         // read off students No. (make sure that this counts for if a student is repeated)
-        cout<<"Student No. "<< //(What data type do i put here )<< ":"<<endl;
+        cout<<"Student No. "<<  ":"<<endl;//(What data type do i put here )
         cout<< "Student FIDN"<< endl;
         cin>> setFIDN(); //could this and the other two be setFIDN and SetFN and SetLN
         cout<< "Student First Name:"<< endl; 
