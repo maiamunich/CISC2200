@@ -4,7 +4,6 @@
 int main()
 {
     string answer;
-    string FIDN, FN, LN;
     cout<< "Please follow the prompt to enter students information, maximum number of students is 6. Type 'Y' to begin/continue, type 'N' to stop"<< endl; 
     cin >> answer;
 // create a while loop that checks that we dont go over the maxium abount of student '6' and gives the user the options of yes or no 
@@ -16,11 +15,11 @@ int main()
         // read off students No. (make sure that this counts for if a student is repeated)
         cout<<"Student No. "<<  ":"<<endl;//(What data type do i put here )
         cout<< "Student FIDN"<< endl;
-        cin>> setFIDN(); //could this and the other two be setFIDN and SetFN and SetLN
+        cin>> Student.setFIDN(); //could this and the other two be setFIDN and SetFN and SetLN
         cout<< "Student First Name:"<< endl; 
-        cin>> setFN(); 
+        cin>> Student.setFN(); 
         cout<< "Student Last Name:"<< endl;
-        cin>> setLN();
+        cin>> Student.setLN();
         //students fidn
         //students first name 
         //students last name
