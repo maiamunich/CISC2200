@@ -35,11 +35,11 @@ int main()
         if(studentList.NewInsertItem(newItem))
         {
             
-            cout <<endl;
+            cout<<"A new Item has been inserted"<<endl;
         }
         else 
         {
-            cout<< endl;       
+           cout << "The item is not inserted since it is a duplicate." << endl;      
         }
         if(!studentList.IsFull())
         {

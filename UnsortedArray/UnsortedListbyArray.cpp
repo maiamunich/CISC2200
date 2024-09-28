@@ -110,15 +110,12 @@ bool UnsortedListByArray::NewInsertItem (ItemType newItem)
     {
         if(newItem.ComparedTo(info[i])==EQUAL)//see what other data type variable is needed)// found return true 
         {
-          cout << "The item is not inserted since it is a duplicate." << endl;
           return false;
         }
     }
     //inster the new item here 
     info[length]=newItem;
     length++;
-    cout<<"A new Item has been inserted"<<endl;
-    cout<<endl;
     return true; 
 }
 void UnsortedListByArray::SplitList (ItemType item, UnsortedListByArray & listOne, UnsortedListByArray & listTwo)
