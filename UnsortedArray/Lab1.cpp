@@ -44,7 +44,7 @@ int main()
 
         studentList.Print();
 
-        if(studentList.GetLength()<MAX_ITEM)
+        if(!studentList.IsFull())
         {
             cout << endl;
             cout << "Do you want to enter another student? (Y/N): "<<endl;
