@@ -8,7 +8,9 @@
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
-				"${workspaceFolder}/*.cpp",
+				"${workspaceFolder}/Lab1.cpp",
+				"${workspaceFolder}/Student.cpp",
+				"${workspaceFolder}/UnsortedListbyArray.cpp",
 				"-o",
 				"${workspaceFolder}/Lab1"
 			],
