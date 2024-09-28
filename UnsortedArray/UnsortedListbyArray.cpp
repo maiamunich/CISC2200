@@ -117,7 +117,8 @@ bool UnsortedListByArray::NewInsertItem (ItemType newItem)
     //inster the new item here 
     info[length]=newItem;
     length++;
-    cout<<"New Item has been inserted"<<endl;
+    cout<<"A new Item has been inserted"<<endl;
+    cout<<endl;
     return true; 
 }
 void UnsortedListByArray::SplitList (ItemType item, UnsortedListByArray & listOne, UnsortedListByArray & listTwo)

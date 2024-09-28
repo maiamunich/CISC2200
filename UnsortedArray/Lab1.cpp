@@ -39,7 +39,7 @@ int main()
         }
         else 
         {
-            cout << "BITCH YOU BETTER RUNN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl;       
+            cout<< endl;       
         }
 
         studentList.Print();
@@ -53,6 +53,7 @@ int main()
         else
         {
            cout<< "The list is full, you have to stop."<<endl;
+           cout<<endl;
         }
 
     }
@@ -61,8 +62,10 @@ int main()
     cout << "This is the list"<< endl;
     studentList.Print();
 
+    cout<<endl;
     cout << "Please enter the FIDN as the key vlue to split the student list: "<< endl; 
     cin >> key;
+    cout<<endl;
     
     ItemType item;
     item.Initialize(key);
