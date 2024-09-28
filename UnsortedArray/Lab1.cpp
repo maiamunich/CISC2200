@@ -41,9 +41,6 @@ int main()
         {
             cout<< endl;       
         }
-
-        studentList.Print();
-
         if(!studentList.IsFull())
         {
             cout << endl;
