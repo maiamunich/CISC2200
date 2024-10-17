@@ -126,6 +126,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
   //      listOne and listTwo have been initialized and not empty
   //Post: List contains all items from listOne and listTwo.
   {
+    cout<< "Entering Merge list system"<<endl;
     this->MakeEmpty();
     if( !listOne.IsEmpty() && !listTwo.IsEmpty())
     {
@@ -138,7 +139,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
       //creating 2 new variables for the current positions of list one and two
       int currentPos1 = -1;
       int currentPos2 = -1;
-
+cout<<"addes current positions 1 and 2"<<endl;
       //getting the first element in the list
       listOne.GetNextItem(item1);//Does this make it go to the end or does it keep on going without knowing if it is done
       listTwo.GetNextItem(item2);
@@ -150,12 +151,15 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
     {
        if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
         {
+          cout<<"inside do while if statement loop";
           this->InsertItem(item1);
           listOne.GetNextItem(item1);
           currentPos1++;
         }
         else 
         {
+                    cout<<"inside do while else statement loop";
+
           this->InsertItem(item2);
           listTwo.GetNextItem(item2);
           currentPos2++;
@@ -186,6 +190,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
     {
       cout << "Conditions not meet"<<endl;
     }
+    cout<<"end of the merge list"<<endl; 
   }
 
 void SortedListByArray::Print()
