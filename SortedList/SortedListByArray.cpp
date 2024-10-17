@@ -190,7 +190,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
 
 void SortedListByArray::Print()
 {
-  for(int i=0; i< length; i++)
+  for(int i=0; i< length.GetLength(); i++)
   {
     info[i].Print();
   }
