@@ -140,13 +140,13 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
       int currentPos1 = -1;
       int currentPos2 = -1;
 cout<<"addes current positions 1 and 2"<<endl;
-      //getting the first element in the list
+     /* //getting the first element in the list
       listOne.GetNextItem(item1);//Does this make it go to the end or does it keep on going without knowing if it is done
       listTwo.GetNextItem(item2);
       currentPos++;
       currentPos1++;
       currentPos2++;
-
+*/
     do
     {
        if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
