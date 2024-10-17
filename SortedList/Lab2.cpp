@@ -1,5 +1,4 @@
-#include "SortedType.h"
-#include "SortedListbyArray.h"
+#include "SortedListByArray.h"
 #include <iostream> 
 #include <string>
 
