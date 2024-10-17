@@ -205,7 +205,7 @@ void SortedListByArray::Print()
     {
         for (int y = 0; y < length; y++)
         {
-            if(info[y].CompareTo (info[z + 1])== GREATER)
+            if(info[y].ComparedTo (info[z + 1])== GREATER)
             {
                 ItemType temp = info[y];
                 info[y] = info[y + 1];
