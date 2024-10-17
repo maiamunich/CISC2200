@@ -199,7 +199,7 @@ void SortedListByArray::Print()
   cout <<"Exiting Print";
 }
 
-  void BubbleArraySort()
+  void SortedListByArray::BubbleArraySort()
   {
     for(int z = 0; z < length; z++)
     {
