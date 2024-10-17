@@ -153,7 +153,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
         {
           this->InsertItem(item1);
           currentPos1++;
-          if(currentPos1 == listOne.GetLength())
+          if(currentPos1 > listOne.GetLength())
           {
             break; 
           }
@@ -164,7 +164,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
 
           this->InsertItem(item2);
           currentPos2++;
-          if(currentPos2 == listTwo.GetLength())
+          if(currentPos2 > listTwo.GetLength())
           {
             break;
           }
