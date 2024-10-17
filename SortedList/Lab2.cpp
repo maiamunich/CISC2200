@@ -32,6 +32,7 @@ int main()
         listTwo.InsertItem(item2);
     }
     listTwo.Print(); 
+    cout << "Calling to MergeList" << endl;
     MergedList.MergeList(listOne, listTwo);
     cout<< "After merging both list together we get a sorted list: "<< endl;
     

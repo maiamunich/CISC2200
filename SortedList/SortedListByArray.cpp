@@ -126,6 +126,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
   //      listOne and listTwo have been initialized and not empty
   //Post: List contains all items from listOne and listTwo.
   {
+    //cout << "Inside MergeList" << endl;
     this->MakeEmpty();
     if( !listOne.IsEmpty() && !listTwo.IsEmpty())
     {
@@ -147,8 +148,8 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
     //while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength())
     do
     {
-      item1.Print();
-      item2.Print();
+      //item1.Print();
+      //item2.Print();
       if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
         {
           this->InsertItem(item1);
@@ -170,6 +171,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
           }
           listTwo.GetNextItem(item2);
         }
+      //cout << "Positions:" << currentPos1 << "," << currentPos2 << endl;
     }while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength());
     
    /* do
