@@ -25,6 +25,7 @@ public : 			// 4 public member functions
 
   void Print( ) const 
   {
+    cout<< "Entering Print in itemtype";
    cout  <<  value  <<  endl;
   }
 

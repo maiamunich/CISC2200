@@ -190,10 +190,13 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
 
 void SortedListByArray::Print()
 {
+  cout << "Entering print";
   for(int i=0; i< length; i++)
   {
     info[i].Print();
+    
   }
+  cout <<"Exiting Print";
 }
 
   void BubbleArraySort()
