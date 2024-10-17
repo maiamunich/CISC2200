@@ -10,7 +10,7 @@
 				"-g",
 				"${workspaceFolder}/Lab2.cpp",
 				"${workspaceFolder}/SortedType.cpp",
-				"${workspaceFolder}/SortedListbyArray.cpp",
+				"${workspaceFolder}/SortedListByArray.cpp",
 				"-o",
 				"${workspaceFolder}/Lab2"
 			],
