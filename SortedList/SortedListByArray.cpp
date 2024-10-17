@@ -137,8 +137,8 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
       this->ResetList();
 
       //creating 2 new variables for the current positions of list one and two
-      int currentPos1 = -1;
-      int currentPos2 = -1;
+      int currentPos1 = 0;
+      int currentPos2 = 0;
 cout<<"addes current positions 1 and 2"<<endl;
      //getting the first element in the list
       listOne.GetNextItem(item1);//Does this make it go to the end or does it keep on going without knowing if it is done
