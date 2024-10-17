@@ -33,7 +33,7 @@ int main()
     {
         for (int y = 0; y < listTwo.GetLength(); y++)
         {
-            if(array[j] > array[z + 1])
+            if(array[y] > array[z + 1])
             {
                 int temp = array[y];
                 array[y] = array[y + 1];
