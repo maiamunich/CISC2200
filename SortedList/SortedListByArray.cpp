@@ -126,7 +126,6 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
   //      listOne and listTwo have been initialized and not empty
   //Post: List contains all items from listOne and listTwo.
   {
-    cout<< "Entering Merge list system"<<endl;
     this->MakeEmpty();
     if( !listOne.IsEmpty() && !listTwo.IsEmpty())
     {
@@ -139,47 +138,37 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
       //creating 2 new variables for the current positions of list one and two
       int currentPos1 = 0;
       int currentPos2 = 0;
-cout<<"addes current positions 1 and 2"<<endl;
      //getting the first element in the list
       listOne.GetNextItem(item1);//Does this make it go to the end or does it keep on going without knowing if it is done
       listTwo.GetNextItem(item2);
       currentPos++;
       currentPos1++;
       currentPos2++;
-cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
     while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength())
     {
-      cout<<"inside mothercuker"<< currentPos1<< currentPos2<<endl;
       item1.Print();
       item2.Print();
       if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
         {
-          cout<<"inside do while if statement loop";
           this->InsertItem(item1);
           currentPos1++;
-          cout<< "about to enter if statemtnet"<<endl;
           if(currentPos1 == listOne.GetLength())
           {
-            cout<< "inside if statemtent one"<<endl;
             break; 
           }
           listOne.GetNextItem(item1);
         }
         else 
         {
-                    cout<<"inside do while else statement loop";
 
           this->InsertItem(item2);
           currentPos2++;
-          cout<< "About to enter if statment two"<< currentPos2<<endl;
           if(currentPos2 == listTwo.GetLength())
           {
-            cout<<"Inside if statement two"<<endl;
             break;
           }
           listTwo.GetNextItem(item2);
         }
-        cout<<" are we stuck????"<<currentPos1<<currentPos2<<endl;
     }
     
    /* do
@@ -212,7 +201,7 @@ cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
         this->InsertItem(item2);
         listTwo.GetNextItem(item2);
         currentPos2++;
-      }while(currentPos2 < listTwo.GetLength());
+      }while(currentPos2 <= listTwo.GetLength());
       cout<<"exit do while loop"<<endl;
     }
     else 
@@ -224,7 +213,7 @@ cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
         this->InsertItem(item1);
         listOne.GetNextItem(item1);
         currentPos1++;
-      } while (currentPos1 < listOne.GetLength());
+      } while (currentPos1 <= listOne.GetLength());
       cout<<"exit do while lioop 2"<<endl;
     }
     }
