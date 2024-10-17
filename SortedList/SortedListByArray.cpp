@@ -223,7 +223,7 @@ cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
         cout<<"entered do while loop 2"<<endl;
         this->InsertItem(item1);
         listOne.GetNextItem(item1);
-        currentPos1;
+        currentPos1++;
       } while (currentPos1 < listOne.GetLength());
       cout<<"exit do while lioop 2"<<endl;
     }
