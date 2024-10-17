@@ -78,9 +78,9 @@ void SortedListByArray::RetrieveItem(ItemType& item, bool& found)
 
 
 void SortedListByArray::DeleteItem(ItemType item) 
-// Pre: item’s key has been inititalized.
-//	One and only one element in the list has a key that matches item’s.
-// Post: No element in the list has a key that matches item’s.
+// Pre: itemï¿½s key has been inititalized.
+//	One and only one element in the list has a key that matches itemï¿½s.
+// Post: No element in the list has a key that matches itemï¿½s.
 {
    int location = 0;
    while(item.ComparedTo(info[location])!= EQUAL)
@@ -120,3 +120,39 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
   currentPos++  ;
   item = info [currentPos] ;
 }
+
+  void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray& listTwo)
+  // Pre: The SortedList Object has been initialized and empty.
+  //      listOne and listTwo have been initialized and not empty
+  //Post: List contains all items from listOne and listTwo.
+  {
+    this->MakeEmpty();
+    if( !listOne.IsEmpty() && !listTwo.IsEmpty())
+    {
+      ItemType item1, item2;
+      listOne.ResetList();
+      listOne.GetNextItem(item1);//Does this make it go to the end or does it keep on going without knowing if it is done
+      listTwo.ResetList();
+      listTwo.GetNextItem(item2);
+      this->ResetList();
+      currentPos++;
+      while(listOne.GetLength()!=-1 || listTwo.GetLength()!=-1)
+      {
+        if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
+        {
+          this->InsertItem(item1);
+        }
+        else 
+        {
+          this->InsertItem(item2)
+        }
+      };
+      //Use CompareTo; 
+      //Use InsertNewItem 
+    }
+    else 
+    {
+      cout << "Conditions not meet"<<endl;
+    }
+  }
+
