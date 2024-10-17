@@ -163,7 +163,7 @@ cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
           }
           listOne.GetNextItem(item1);
         }
-        else 
+        else if (item2.ComparedTo(item1)== LESS || item2.ComparedTo(item1)== EQUAL) 
         {
                     cout<<"inside do while else statement loop";
 
@@ -176,6 +176,10 @@ cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
             break;
           }
           listTwo.GetNextItem(item2);
+        }
+        else
+        {
+          break; 
         }
         cout<<" are we stuck????"<<currentPos1<<currentPos2<<endl;
     }
