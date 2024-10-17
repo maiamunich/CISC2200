@@ -165,6 +165,7 @@ cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
           listTwo.GetNextItem(item2);
           currentPos2++;
         }
+        cout<<" are we stuck????"<<currentPos1<<currentPos2<<endl;
     }
     
    /* do
