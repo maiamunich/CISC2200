@@ -155,8 +155,10 @@ cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
           cout<<"inside do while if statement loop";
           this->InsertItem(item1);
           currentPos1++;
+          cout<< "about to enter if statemtnet"<<endl;
           if(currentPos1 == listOne.GetLength())
           {
+            cout<< "inside if statemtent one"<<endl;
             break; 
           }
           listOne.GetNextItem(item1);
@@ -167,8 +169,10 @@ cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
 
           this->InsertItem(item2);
           currentPos2++;
+          cout<< "About to enter if statment two"<<endl;
           if(currentPos2 == listTwo.GetLength())
           {
+            cout<<"Inside if statement two"<<endl;
             break;
           }
           listTwo.GetNextItem(item2);
