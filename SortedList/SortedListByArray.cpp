@@ -140,14 +140,33 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
       int currentPos1 = -1;
       int currentPos2 = -1;
 cout<<"addes current positions 1 and 2"<<endl;
-     /* //getting the first element in the list
+     //getting the first element in the list
       listOne.GetNextItem(item1);//Does this make it go to the end or does it keep on going without knowing if it is done
       listTwo.GetNextItem(item2);
       currentPos++;
       currentPos1++;
       currentPos2++;
-*/
-    do
+
+    while (currentPos1 < listOne.GetLength() || currentPos2 < listTwo.GetLength())
+    {
+      if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
+        {
+          cout<<"inside do while if statement loop";
+          this->InsertItem(item1);
+          listOne.GetNextItem(item1);
+          currentPos1++;
+        }
+        else 
+        {
+                    cout<<"inside do while else statement loop";
+
+          this->InsertItem(item2);
+          listTwo.GetNextItem(item2);
+          currentPos2++;
+        }
+    }
+    
+   /* do
     {
        if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
         {
@@ -164,7 +183,7 @@ cout<<"addes current positions 1 and 2"<<endl;
           listTwo.GetNextItem(item2);
           currentPos2++;
         }
-    } while (currentPos1 < listOne.GetLength() || currentPos2 < listTwo.GetLength());
+    } while (currentPos1 < listOne.GetLength() || currentPos2 < listTwo.GetLength()); */
     
     //makes sure that the code is checking which list has been completed and finishing the other one 
     if(currentPos1 == listOne.GetLength())
