@@ -155,7 +155,7 @@ cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
           cout<<"inside do while if statement loop";
           this->InsertItem(item1);
           currentPos1++;
-          if(currentPos1 == listOne.GetLenght())
+          if(currentPos1 == listOne.GetLength())
           {
             break; 
           }
