@@ -30,9 +30,7 @@ int main()
         cin>> space2;
         item2.Initialize(space2);
         listTwo.InsertItem(item2);
-        cout<<"outputted";
     }
-    cout<<"yessss bitchh"<<endl;
     //listTwo.Print(); 
 
 
