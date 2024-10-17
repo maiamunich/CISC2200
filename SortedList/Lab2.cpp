@@ -10,10 +10,10 @@ int main()
     int array[MAX_ITEM];
 
     cout<< "Please enter the numbers for List One: ";
-    cin<< listOne.array[item1];
+    cin<< listOne.info[item1];
 
     cout<< "Please enter the numbers for List Two: ";
-    cin<< listTwo.array[item2];
+    cin<< listTwo.info[item2];
 
     //sorting the lists one 
     for(int i = 0; i < listOne.GetLength(); i++)
