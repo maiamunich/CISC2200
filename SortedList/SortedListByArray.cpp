@@ -156,7 +156,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
         }
         else 
         {
-          this->InsertItem(item2)
+          this->InsertItem(item2);
           listTwo.GetNextItem(item2);
           currentPos2++;
         }
@@ -168,7 +168,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
       do
       {
         this->InsertItem(item2);
-        listTwo.GetNetItem(item2);
+        listTwo.GetNextItem(item2);
         currentPos2++;
       }while(currentPos2 < listTwo.GetLength());
     }
