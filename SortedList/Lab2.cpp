@@ -20,28 +20,19 @@ int main()
         item1.Initialize(space1);
         listOne.InsertItem(item1);
     }
-    //listOne.Print();
+    listOne.Print();
 
     cout<< "Please enter how long is the list two is: ";
     cin>> length2;
     for(int b = 0; b< length2; b++)
     {
-        cout<< "Insert the number for position"<< b +1<< ":"<< endl;
+        cout<< "Insert the number for position "<< b +1<< ":"<< endl;
         cin>> space2;
         item2.Initialize(space2);
         listTwo.InsertItem(item2);
     }
-    //listTwo.Print(); 
-
-/*
-    cout<< "The outcome of your inserted number comes out too these two list: "<< endl;
-    listOne.Print();
-
-    cout<<endl;
-
-    listTwo.Print();
-
-*/
+    listTwo.Print(); 
+    
     MergedList.MergeList(listOne, listTwo);
     cout<< "After merging both list together we get a sorted list: "<< endl;
     
