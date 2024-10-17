@@ -169,7 +169,7 @@ cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
 
           this->InsertItem(item2);
           currentPos2++;
-          cout<< "About to enter if statment two"<<endl;
+          cout<< "About to enter if statment two"<< currentPos2<<endl;
           if(currentPos2 == listTwo.GetLength())
           {
             cout<<"Inside if statement two"<<endl;
