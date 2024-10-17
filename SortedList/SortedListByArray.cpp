@@ -130,15 +130,25 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
     if( !listOne.IsEmpty() && !listTwo.IsEmpty())
     {
       ItemType item1, item2;
+      //resetting list to beginning location
       listOne.ResetList();
-      listOne.GetNextItem(item1);//Does this make it go to the end or does it keep on going without knowing if it is done
       listTwo.ResetList();
-      listTwo.GetNextItem(item2);
       this->ResetList();
+
+      //creating 2 new variables for the current positions of list one and two
+      int currentPos1 = -1;
+      int currentPos2 = -1;
+
+      //getting the first element in the list
+      listOne.GetNextItem(item1);//Does this make it go to the end or does it keep on going without knowing if it is done
+      listTwo.GetNextItem(item2);
       currentPos++;
-      while(listOne.GetLength()!=-1 || listTwo.GetLength()!=-1)
-      {
-        if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
+      currentPos1++;
+      currentPos2++;
+
+    do
+    {
+       if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
         {
           this->InsertItem(item1);
         }
@@ -146,9 +156,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
         {
           this->InsertItem(item2)
         }
-      };
-      //Use CompareTo; 
-      //Use InsertNewItem 
+    } while (currentPos1 < listOne.GetLength() || currentPos2 < listTwo.GetLength());
     }
     else 
     {
