@@ -147,7 +147,8 @@ cout<<"addes current positions 1 and 2"<<endl;
       currentPos1++;
       currentPos2++;
 cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
-    while (currentPos1 < listOne.GetLength() || currentPos2 < listTwo.GetLength())
+   do
+   {
     {
       cout<<"inside mothercuker"<< currentPos1<< currentPos2<<endl;
       if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
@@ -183,6 +184,7 @@ cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
         }
         cout<<" are we stuck????"<<currentPos1<<currentPos2<<endl;
     }
+  } while (currentPos1 < listOne.GetLength() || currentPos2 < listTwo.GetLength());
     
    /* do
     {
