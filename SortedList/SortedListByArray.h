@@ -22,6 +22,7 @@ public :
   void ResetList( );
   void GetNextItem( ItemType&  item ); 	
   void MergeList(SortedListByArray& listOne, SortedListByArray& listTwo);
+  void Print();
 private :
    int length; 
    ItemType info[MAX_ITEM]; 

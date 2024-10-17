@@ -151,12 +151,36 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
        if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
         {
           this->InsertItem(item1);
+          listOne.GetNextItem(item1);
+          currentPos1++;
         }
         else 
         {
           this->InsertItem(item2)
+          listTwo.GetNextItem(item2);
+          currentPos2++;
         }
     } while (currentPos1 < listOne.GetLength() || currentPos2 < listTwo.GetLength());
+    
+    //makes sure that the code is checking which list has been completed and finishing the other one 
+    if(currentPos1 == listOne.GetLength())
+    {
+      do
+      {
+        this->InsertItem(item2);
+        listTwo.GetNetItem(item2);
+        currentPos2++;
+      }while(currentPos2 < listTwo.GetLength());
+    }
+    else 
+    {
+      do
+      {
+        this->InsertItem(item1);
+        listOne.GetNextItem(item1);
+        currentPos1;
+      } while (currentPos1 < listOne.GetLength());
+    }
     }
     else 
     {
@@ -164,3 +188,10 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
     }
   }
 
+void SortedListByArray::Print()
+{
+  for(int i=0; i< length; i++)
+  {
+    info[i].Print();
+  }
+}
