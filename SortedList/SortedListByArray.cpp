@@ -144,7 +144,8 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
       currentPos++;
       currentPos1++;
       currentPos2++;
-    while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength())
+    //while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength())
+    do
     {
       item1.Print();
       item2.Print();
@@ -169,7 +170,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
           }
           listTwo.GetNextItem(item2);
         }
-    }
+    }while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength());
     
    /* do
     {
@@ -191,30 +192,23 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
     } while (currentPos1 < listOne.GetLength() || currentPos2 < listTwo.GetLength()); */
     
     //makes sure that the code is checking which list has been completed and finishing the other one 
-    cout<< "About to enter if statemnet for current Pos 1 == listone.getlength(0)"<<endl;
     if(currentPos1 == listOne.GetLength())
     {
-      cout << "entered if statement"<<endl;
       do
       {
-        cout<< "entered do while loop"<<endl; 
         this->InsertItem(item2);
         listTwo.GetNextItem(item2);
         currentPos2++;
       }while(currentPos2 <= listTwo.GetLength());
-      cout<<"exit do while loop"<<endl;
     }
     else 
     { 
-      cout<<"enterd else statemetn"<<endl;
       do
       {
-        cout<<"entered do while loop 2"<<endl;
         this->InsertItem(item1);
         listOne.GetNextItem(item1);
         currentPos1++;
       } while (currentPos1 <= listOne.GetLength());
-      cout<<"exit do while lioop 2"<<endl;
     }
     }
     else 
