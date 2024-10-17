@@ -150,20 +150,28 @@ cout<<currentPos1<<currentPos2<< listOne.GetLength()<<listTwo.GetLength()<<endl;
     while (currentPos1 < listOne.GetLength() || currentPos2 < listTwo.GetLength())
     {
       cout<<"inside mothercuker"<< currentPos1<< currentPos2<<endl;
-      if(item1.ComparedTo(item2)==LESS)
+      if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
         {
           cout<<"inside do while if statement loop";
           this->InsertItem(item1);
-          listOne.GetNextItem(item1);
           currentPos1++;
+          if(currentPos1 == listOne.GetLenght())
+          {
+            break; 
+          }
+          listOne.GetNextItem(item1);
         }
         else 
         {
                     cout<<"inside do while else statement loop";
 
           this->InsertItem(item2);
-          listTwo.GetNextItem(item2);
           currentPos2++;
+          if(currentPos2 == listTwo.GetLength())
+          {
+            break;
+          }
+          listTwo.GetNextItem(item2);
         }
         cout<<" are we stuck????"<<currentPos1<<currentPos2<<endl;
     }
