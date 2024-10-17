@@ -195,3 +195,19 @@ void SortedListByArray::Print()
     info[i].Print();
   }
 }
+
+  void BubbleArraySort()
+  {
+    for(int z = 0; z < length; z++)
+    {
+        for (int y = 0; y < length; y++)
+        {
+            if(info[y].CompareTo (info[z + 1])== GREATER)
+            {
+                ItemType temp = info[y];
+                info[y] = info[y + 1];
+                info[y + 1] = temp;
+            }
+        }
+    }
+  }

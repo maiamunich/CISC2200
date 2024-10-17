@@ -33,35 +33,6 @@ int main()
     }
     //listTwo.Print(); 
 
-
-
-    //sorting the lists one 
-  //  for(int i = 0; i < listOne.GetLength(); i++)
-    //{
-      //  for (int j = 0; j < listOne.GetLength(); j++)
-        //{
-          ///  if(array[j] > array[i + 1])
-  //          {
-    //            int temp = array[j];
-      //          array[j] = array[j + 1];
-        //        array[j + 1] = temp;
-          //  }
-       // }
-   // }
-    //sorting the list two 
- /*    for(int z = 0; z < listTwo.GetLength(); z++)
-    {
-        for (int y = 0; y < listTwo.GetLength(); y++)
-        {
-            if(array[y] > array[z + 1])
-            {
-                int temp = array[y];
-                array[y] = array[y + 1];
-                array[y + 1] = temp;
-            }
-        }
-    }
-*/
 /*
     cout<< "The outcome of your inserted number comes out too these two list: "<< endl;
     listOne.Print();
