@@ -20,7 +20,7 @@ int main()
         item1.Initialize(space1);
         listOne.InsertItem(item1);
     }
-    listOne.Print();
+    //listOne.Print();
 
     cout<< "Please enter how long is the list two is: ";
     cin>> length2;
@@ -33,7 +33,7 @@ int main()
         cout<<"outputted";
     }
     cout<<"yessss bitchh"<<endl;
-    listTwo.Print(); 
+    //listTwo.Print(); 
 
 
 
