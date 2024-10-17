@@ -6,30 +6,50 @@ using namespace std;
 
 int main()
 {
-    SortedListByArray item1, item2, listOne, listTwo, MergedList; 
-    int array[MAX_ITEM];
+    SortedListByArray listOne, listTwo, MergedList; 
+    ItemType item1, item2;
+    int length1, length2;
+    char space1, space2;
 
-    cout<< "Please enter the numbers for List One: ";
-    cin<< listOne.info[item1];
+    cout<< "Please enter how long the list one is: " ;
+    cin >> length1;
+    for(int a = 0; a <length1; a++)
+    {
+        cout<<"Insert the number for position "<< a << ":" << endl;
+        cin>> space1;
+        item1.Initialize(space1);
+        listOne.InsertItem(item1);
+    }
+    listOne.Print();
 
-    cout<< "Please enter the numbers for List Two: ";
-    cin<< listTwo.info[item2];
+    cout<< "Please enter how long is the lsit two is: ";
+    cin>> length2;
+    for(int b = 0; b< length2; b++)
+    {
+        cout<< "Insert the number for position"<< b<< ":"<< endl;
+        cin>> space2;
+        item2.Initialize(space2);
+        listTwo.InsertItem(item2);
+    }
+    listTwo.Print(); 
+
+    
 
     //sorting the lists one 
-    for(int i = 0; i < listOne.GetLength(); i++)
-    {
-        for (int j = 0; j < listOne.GetLength(); j++)
-        {
-            if(array[j] > array[i + 1])
-            {
-                int temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-            }
-        }
-    }
+  //  for(int i = 0; i < listOne.GetLength(); i++)
+    //{
+      //  for (int j = 0; j < listOne.GetLength(); j++)
+        //{
+          ///  if(array[j] > array[i + 1])
+  //          {
+    //            int temp = array[j];
+      //          array[j] = array[j + 1];
+        //        array[j + 1] = temp;
+          //  }
+       // }
+   // }
     //sorting the list two 
-    for(int z = 0; z < listTwo.GetLength(); z++)
+ /*    for(int z = 0; z < listTwo.GetLength(); z++)
     {
         for (int y = 0; y < listTwo.GetLength(); y++)
         {
@@ -41,7 +61,7 @@ int main()
             }
         }
     }
-
+*/
 
     cout<< "The outcome of your inserted number comes out too these two list: "<< endl;
     listOne.Print();
