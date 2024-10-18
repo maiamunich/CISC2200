@@ -198,7 +198,11 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
           cout<< " 12"<<endl;
 
         this->InsertItem(item2);
+          cout<< " see "<<endl;
+
         listTwo.GetNextItem(item2);
+          cout<< " me"<<endl;
+
         currentPos2++;
           cout<< " cry "<<endl;
 
