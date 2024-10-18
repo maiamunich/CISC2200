@@ -192,6 +192,7 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
     if(currentPos1 == listOne.GetLength())
     {
         cout<< " 11"<<endl;
+        cout<<currentPos1<<currentPos2<<endl;
 
       do
       {
