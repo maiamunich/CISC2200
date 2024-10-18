@@ -138,8 +138,8 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
     this->ResetList();
 
     //creating 2 new variables for the current positions of list one and two
-    int currentPos1 = 0;
-    int currentPos2 = 0;
+    int currentPos1 = -1;
+    int currentPos2 = -1;
     //getting the first element in the list
     listOne.GetNextItem(item1);
     listTwo.GetNextItem(item2);
@@ -152,7 +152,7 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
         {
           this->InsertItem(item1);
           currentPos1++;
-          if(currentPos1 > listOne.GetLength())
+          if(currentPos1 == listOne.GetLength())
           {
             break; 
           }
@@ -163,13 +163,13 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
 
           this->InsertItem(item2);
           currentPos2++;
-          if(currentPos2 > listTwo.GetLength())
+          if(currentPos2 == listTwo.GetLength())
           {
             break;
           }
           listTwo.GetNextItem(item2);
         }
-    }while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength() && currentPos1 <= MAX_ITEM && currentPos2 <= MAX_ITEM );   
+    }while (currentPos1 < listOne.GetLength() && currentPos2 < listTwo.GetLength() && currentPos1 < MAX_ITEM && currentPos2 < MAX_ITEM );   
     
     //makes sure that the code is checking which list has been completed and finishing the other one 
     if(currentPos1 == listOne.GetLength())
@@ -179,7 +179,7 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
         this->InsertItem(item2);
         listTwo.GetNextItem(item2);
         currentPos2++;
-      }while(currentPos2 <= listTwo.GetLength());
+      }while(currentPos2 < listTwo.GetLength());
     }
     else 
     { 
@@ -188,7 +188,7 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
         this->InsertItem(item1);
         listOne.GetNextItem(item1);
         currentPos1++;
-      } while (currentPos1 <= listOne.GetLength());
+      } while (currentPos1 < listOne.GetLength());
     }
   }
    else 
