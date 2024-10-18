@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-const int  MAX_ITEM = 50;
+const int  MAX_ITEM = 5;
 enum  RelationType { LESS, EQUAL, GREATER };
 
 class  ItemType		// declares class data type

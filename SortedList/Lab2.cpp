@@ -30,9 +30,9 @@ int main()
 
     cout<< "Please enter how long is the list two is: ";
     cin>> length2;
-     while(length2 > MAX_ITEM)
+     while(length2 > MAX_ITEM-length1)
     {
-        cout<< "The amount you have entered is above "<< MAX_ITEM<<endl;
+        cout<< "The amount you have entered is above "<< MAX_ITEM-length1<<endl;
         cout<< "Please enter a new amount for how long List Two is: "<<endl;
         cin >> length2;
 
