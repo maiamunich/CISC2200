@@ -172,26 +172,9 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
           listTwo.GetNextItem(item2);
         }
       //cout << "Positions:" << currentPos1 << "," << currentPos2 << endl;
-    }while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength());
+    }while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength() || currentPos1 <= MAX_ITEM && CurrentPos2 <= MAX_ITEM);
     
-   /* do
-    {
-       if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
-        {
-          cout<<"inside do while if statement loop";
-          this->InsertItem(item1);
-          listOne.GetNextItem(item1);
-          currentPos1++;
-        }
-        else 
-        {
-                    cout<<"inside do while else statement loop";
-
-          this->InsertItem(item2);
-          listTwo.GetNextItem(item2);
-          currentPos2++;
-        }
-    } while (currentPos1 < listOne.GetLength() || currentPos2 < listTwo.GetLength()); */
+  
     
     //makes sure that the code is checking which list has been completed and finishing the other one 
     if(currentPos1 == listOne.GetLength())
