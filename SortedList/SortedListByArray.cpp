@@ -172,9 +172,9 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
           listTwo.GetNextItem(item2);
         }
       //cout << "Positions:" << currentPos1 << "," << currentPos2 << endl;
-    }while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength() || currentPos1 <= MAX_ITEM && currentPos2 <= MAX_ITEM);
+    }while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength());
     
-  
+  //|| currentPos1 <= MAX_ITEM && currentPos2 <= MAX_ITEM
     
     //makes sure that the code is checking which list has been completed and finishing the other one 
     if(currentPos1 == listOne.GetLength())
