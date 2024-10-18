@@ -141,7 +141,7 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
     int currentPos1 = -1;
     int currentPos2 = -1;
     //getting the first element in the list
-    listOne.GetNextItem(item1);
+    listOne.GetNextItem(item1); 
     listTwo.GetNextItem(item2);
     currentPos++;
     currentPos1++;
