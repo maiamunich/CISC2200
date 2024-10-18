@@ -130,6 +130,7 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
 {
   //cout << "Inside MergeList" << endl;
   this->MakeEmpty();
+  cout<< " 1"<<endl;
   if( !listOne.IsEmpty() && !listTwo.IsEmpty())
   {
     ItemType item1, item2;
@@ -137,6 +138,7 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
     listOne.ResetList();
     listTwo.ResetList();
     this->ResetList();
+  cout<< " 2"<<endl;
 
     //creating 2 new variables for the current positions of list one and two
     int currentPos1 = -1;
@@ -147,56 +149,84 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
     currentPos++;
     currentPos1++;
     currentPos2++;
+      cout<< " 3"<<endl;
+
     do
     {
+        cout<< "4"<<endl;
+
       if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
         {
+            cout<< " 5"<<endl;
+
           this->InsertItem(item1);
           currentPos1++;
           if(currentPos1 == listOne.GetLength())
           {
+              cout<< " 6"<<endl;
+
             break; 
           }
           listOne.GetNextItem(item1);
         }
         else 
         {
+  cout<< " 7"<<endl;
 
           this->InsertItem(item2);
           currentPos2++;
           if(currentPos2 == listTwo.GetLength())
           {
+              cout<< " 8"<<endl;
+
             break;
           }
           listTwo.GetNextItem(item2);
         }
+          cout<< " 9"<<endl;
+
     }while (currentPos1 < listOne.GetLength() && currentPos2 < listTwo.GetLength() );  //&& currentPos1 < MAX_ITEM && currentPos2 < MAX_ITEM 
-    
+      cout<< " 10"<<endl;
+
     //makes sure that the code is checking which list has been completed and finishing the other one 
     if(currentPos1 == listOne.GetLength())
     {
+        cout<< " 11"<<endl;
+
       do
       {
+          cout<< " 12"<<endl;
+
         this->InsertItem(item2);
         listTwo.GetNextItem(item2);
         currentPos2++;
       }while(currentPos2 < listTwo.GetLength());
     }
     else 
-    { 
+    {   cout<< " 13"<<endl;
+
       do
       {
+          cout<< " 14"<<endl;
+
         this->InsertItem(item1);
         listOne.GetNextItem(item1);
         currentPos1++;
       } while (currentPos1 < listOne.GetLength());
+        cout<< " 15"<<endl;
+
     }
   }
    else 
-  {
+  {   cout<< " 16"<<endl;
+
     cout << "Conditions not meet"<<endl;
   }
+    cout<< " 17"<<endl;
+
   cout<<"end of the merge list"<<endl; 
+    cout<< " 18"<<endl;
+
 }
 
 void SortedListByArray::Print()
