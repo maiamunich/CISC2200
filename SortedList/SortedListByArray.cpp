@@ -207,7 +207,7 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
 
         currentPos2++;
           cout<< " cry "<<endl;
-        cout<<currentPos1<<currentPos2<<endl;
+        cout<<currentPos1<<currentPos2<<listTwo.GetLength()<<endl;
 
       }//while(currentPos2 < listTwo.GetLength());
         cout<< " bitch"<<endl;
