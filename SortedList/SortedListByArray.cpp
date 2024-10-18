@@ -205,8 +205,6 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
     cout << "Conditions not meet"<<endl;
   }
 
-  cout<<"end of the merge list"<<endl; 
-
 }
 
 
