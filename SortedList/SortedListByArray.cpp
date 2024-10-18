@@ -35,6 +35,7 @@ void SortedListByArray::InsertItem(ItemType item)
          case GREATER : location++;
                         moreToSearch = (location < length);
                         break;
+        case EQUAL : break;
       }
    }
 
