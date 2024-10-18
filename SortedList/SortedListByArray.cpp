@@ -311,6 +311,7 @@ void SortedListByArray::Print()
     info[i].Print();
     
   }
+  cout<< endl;
 }
 
   void SortedListByArray::BubbleArraySort()
