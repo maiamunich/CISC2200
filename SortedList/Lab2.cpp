@@ -11,8 +11,14 @@ int main()
     int length1, length2;
     int space1, space2;
 
-    cout<< "Please enter how long the list one is: ";
+    cout<< "Please enter how long the List one is (maximum length "<< MAX_ITEM<< "): ";
     cin >> length1;
+    while(length1 > MAX_ITEM)
+    {
+        cout<< "The amount you have entered is above "<< MAX_ITEM<<endl;
+        cout<< "Please enter a new amount for how long List One is: "<<endl;
+        cin >> length1;
+    }
     for(int a = 0; a <length1; a++)
     {
         cout<<"Insert the number for position "<< a + 1<< ":" << endl;
@@ -24,6 +30,13 @@ int main()
 
     cout<< "Please enter how long is the list two is: ";
     cin>> length2;
+     while(length2 > MAX_ITEM)
+    {
+        cout<< "The amount you have entered is above "<< MAX_ITEM<<endl;
+        cout<< "Please enter a new amount for how long List Two is: "<<endl;
+        cin >> length2;
+
+    }
     for(int b = 0; b< length2; b++)
     {
         cout<< "Insert the number for position "<< b +1<< ":"<< endl;

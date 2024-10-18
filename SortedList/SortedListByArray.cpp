@@ -121,35 +121,33 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
   item = info [currentPos] ;
 }
 
-  void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray& listTwo)
-  // Pre: The SortedList Object has been initialized and empty.
-  //      listOne and listTwo have been initialized and not empty
-  //Post: List contains all items from listOne and listTwo.
-  {
-    //cout << "Inside MergeList" << endl;
-    this->MakeEmpty();
-    if( !listOne.IsEmpty() && !listTwo.IsEmpty())
-    {
-      ItemType item1, item2;
-      //resetting list to beginning location
-      listOne.ResetList();
-      listTwo.ResetList();
-      this->ResetList();
 
-      //creating 2 new variables for the current positions of list one and two
-      int currentPos1 = 0;
-      int currentPos2 = 0;
-     //getting the first element in the list
-      listOne.GetNextItem(item1);//Does this make it go to the end or does it keep on going without knowing if it is done
-      listTwo.GetNextItem(item2);
-      currentPos++;
-      currentPos1++;
-      currentPos2++;
-    //while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength())
+void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray& listTwo)
+// Pre: The SortedList Object has been initialized and empty.
+//      listOne and listTwo have been initialized and not empty
+//Post: List contains all items from listOne and listTwo.
+{
+  //cout << "Inside MergeList" << endl;
+  this->MakeEmpty();
+  if( !listOne.IsEmpty() && !listTwo.IsEmpty())
+  {
+    ItemType item1, item2;
+    //resetting list to beginning location
+    listOne.ResetList();
+    listTwo.ResetList();
+    this->ResetList();
+
+    //creating 2 new variables for the current positions of list one and two
+    int currentPos1 = 0;
+    int currentPos2 = 0;
+    //getting the first element in the list
+    listOne.GetNextItem(item1);
+    listTwo.GetNextItem(item2);
+    currentPos++;
+    currentPos1++;
+    currentPos2++;
     do
     {
-      //item1.Print();
-      //item2.Print();
       if(item1.ComparedTo(item2)==LESS || item1.ComparedTo(item2)== EQUAL)
         {
           this->InsertItem(item1);
@@ -171,10 +169,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
           }
           listTwo.GetNextItem(item2);
         }
-      //cout << "Positions:" << currentPos1 << "," << currentPos2 << endl;
-    }while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength());
-    
-  //|| currentPos1 <= MAX_ITEM && currentPos2 <= MAX_ITEM
+    }while (currentPos1 <= listOne.GetLength() && currentPos2 <= listTwo.GetLength() && currentPos1 <= MAX_ITEM && currentPos2 <= MAX_ITEM );   
     
     //makes sure that the code is checking which list has been completed and finishing the other one 
     if(currentPos1 == listOne.GetLength())
@@ -195,13 +190,13 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
         currentPos1++;
       } while (currentPos1 <= listOne.GetLength());
     }
-    }
-    else 
-    {
-      cout << "Conditions not meet"<<endl;
-    }
-    cout<<"end of the merge list"<<endl; 
   }
+   else 
+  {
+    cout << "Conditions not meet"<<endl;
+  }
+  cout<<"end of the merge list"<<endl; 
+}
 
 void SortedListByArray::Print()
 {
