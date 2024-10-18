@@ -200,7 +200,11 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
         this->InsertItem(item2);
         listTwo.GetNextItem(item2);
         currentPos2++;
+          cout<< " cry "<<endl;
+
       }while(currentPos2 < listTwo.GetLength());
+        cout<< " bitch"<<endl;
+
     }
     else 
     {   cout<< " 13"<<endl;
