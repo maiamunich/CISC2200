@@ -123,7 +123,7 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
 }
 
 
-/*void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray& listTwo)
+void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray& listTwo)
 // Pre: The SortedList Object has been initialized and empty.
 //      listOne and listTwo have been initialized and not empty
 //Post: List contains all items from listOne and listTwo.
@@ -239,9 +239,9 @@ void SortedListByArray::GetNextItem ( ItemType&  item )
     cout<< " 18"<<endl;
 
 }
-*/
 
-void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray& listTwo)
+
+/*void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray& listTwo)
 {
   this->MakeEmpty();
   if (!listOne.IsEmpty() && !listTwo.IsEmpty())
@@ -302,7 +302,7 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
     cout << "One or both lists are empty, nothing to merge." << endl;
   }
   cout << "Merge complete. Merged list length: " << length << endl;
-}
+}*/
 
 void SortedListByArray::Print()
 {
