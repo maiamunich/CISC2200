@@ -187,9 +187,10 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
 
     }while (currentPos1 < listOne.GetLength() && currentPos2 < listTwo.GetLength() );  //&& currentPos1 < MAX_ITEM && currentPos2 < MAX_ITEM 
       cout<< " 10"<<endl;
+        cout<<currentPos1<<currentPos2<<endl;
 
     //makes sure that the code is checking which list has been completed and finishing the other one 
-    if(currentPos1 == listOne.GetLength())
+    if(currentPos1 == listOne.GetLength() && currentPos2 < listTwo.GetLength())
     {
         cout<< " 11"<<endl;
         cout<<currentPos1<<currentPos2<<endl;
@@ -206,6 +207,7 @@ void SortedListByArray::MergeList(SortedListByArray& listOne, SortedListByArray&
 
         currentPos2++;
           cout<< " cry "<<endl;
+        cout<<currentPos1<<currentPos2<<endl;
 
       }while(currentPos2 < listTwo.GetLength());
         cout<< " bitch"<<endl;
