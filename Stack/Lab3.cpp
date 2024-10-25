@@ -2,11 +2,11 @@
 #include<stack> 
 using namespace std;
 
-bool isBalanced(const string& case)
+bool isBalanced(const string& cases)
 {
     stack<char> s; 
 
-    for (char ch : case)
+    for (char ch : cases )
     {
         //push onto stack
         if(ch == '(' || ch == '{' || ch == '[')
@@ -42,9 +42,9 @@ int main ()
 {
     string case;
     cout << "Enter an expression to check if parentheses are balanced: ";
-    getline(cin, case);
+    getline(cin, cases );
 
-    if( isBalanced(case))
+    if( isBalanced(cases))
     {
         cout<< "The parenthese are balance."<<endl;
     }
