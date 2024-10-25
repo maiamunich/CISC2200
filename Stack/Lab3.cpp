@@ -40,7 +40,7 @@ bool isBalanced(const string& cases)
 
 int main ()
 {
-    string case;
+    string cases;
     cout << "Enter an expression to check if parentheses are balanced: ";
     getline(cin, cases );
 
