@@ -9,7 +9,7 @@ bool isBalanced(const string& case)
     for (char ch : case)
     {
         //push onto stack
-        if(ch == '()' || ch == '{' || ch == '[')
+        if(ch == '(' || ch == '{' || ch == '[')
         {
             s.push(ch);
         }
