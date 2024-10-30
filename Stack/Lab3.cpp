@@ -23,7 +23,7 @@ bool isBalanced(const string& cases)
             char top = s.top();
 
             //this condition check if the top and bottom match each other
-            if ((ch == ')' && top == '(') || (ch == '}' && top == '}') || (ch == ']' && top == '['))
+            if ((ch == ')' && top == '(') || (ch == '}' && top == '{') || (ch == ']' && top == '['))
             {
              //pop the matching opening bracket
                 s.pop();
