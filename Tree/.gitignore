@@ -1,3 +1,5 @@
 .DS_Store
 *.o
 Lab4
+info.plist
+Lab4.dSYM
