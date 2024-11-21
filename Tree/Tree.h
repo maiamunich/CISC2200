@@ -47,6 +47,12 @@ public:
    void Print(ofstream & output) const;
    void Print() const;
 
+   /* New functions*/
+   int LeafCount() const;
+   void Ancestors(ItemType item) const;
+   void Descendants(ItemType item) const;
+   void Swap(Tree & newTree);
+
 private:
 
    TreeNode * root;

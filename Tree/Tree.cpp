@@ -212,3 +212,23 @@ void Tree::PrintTree(TreeNode* tree, ostream& output) const
 }
 
 
+/* New functions*/
+int Tree::LeafCount() const
+{
+  return 0;
+}
+   
+void Tree::Ancestors(ItemType item) const
+{
+
+}
+
+void Tree::Descendants(ItemType item) const
+{
+
+}
+
+void Tree::Swap(Tree & newTree)
+{
+
+}
