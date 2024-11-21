@@ -233,12 +233,71 @@ int Tree::NumLeaves(TreeNode * node) const
    
 void Tree::Ancestors(ItemType item) const
 {
+  bool is_found;
+  RetrieveItem(item, is_found);
+  if (!is_found)
+  {
+    cout << "Item not found on the Tree" << endl;
+  }
+  else
+  {
+    GetAncestors(root, item);
+  }
+}
 
+bool Tree::GetAncestors(TreeNode* node, ItemType item) const
+{
+  if (node == NULL)
+  {
+    return false;
+  }
+  if(item.ComparedTo(node->info)== EQUAL)
+  {
+    return true;
+  }
+  if (GetAncestors(node->left, item)||GetAncestors(node->right,item))
+  {
+    node->info.Print();
+    return true;
+  }
+  return false;
 }
 
 void Tree::Descendants(ItemType item) const
 {
+  bool is_found;
+  RetrieveItem(item, is_found);
+  if (!is_found)
+  {
+    cout << "Item not found on the Tree" << endl;
+  }
+  else
+  {
+    GetDescendants(root, item);
+  }
+}
 
+void Tree::GetDescendants(TreeNode* node, ItemType item) const
+{
+  if (node == NULL)
+  {
+    return;
+  }
+  if (item.ComparedTo(node->info)== LESS)
+  {
+    GetDescendants(node->left, item);
+  }
+  else if (item.ComparedTo(node->info)== GREATER)
+  {
+    GetDescendants(node->right, item);
+  }
+  else  
+  {
+    cout << "Left:"; 
+    node->left->info.Print();
+    cout << "Right:"; 
+    node->right->info.Print();
+  }
 }
 
 void Tree::Swap(Tree & newTree)

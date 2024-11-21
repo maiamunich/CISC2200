@@ -23,13 +23,13 @@ int main()
     cout << "The tree has " << tree.GetLength() << " elements" << endl;
 
     // Test ancestors
-    cout << "Test Ancestors for: C" << endl;
-    item.Initialize('C');
+    cout << "Test Ancestors for: " << letters[5] << endl;
+    item.Initialize(letters[5]);
     tree.Ancestors(item);
 
     // Test descendants
-    cout << "Test Descendants for: N" << endl;
-    item.Initialize('N');
+    cout << "Test Descendants for: " << letters[1] << endl;
+    item.Initialize(letters[1]);
     tree.Descendants(item);
 
     // Test Swap

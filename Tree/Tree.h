@@ -71,6 +71,8 @@ private:
 
    // New auxiliary functions
    int NumLeaves(TreeNode * node) const;
+   bool GetAncestors(TreeNode* node, ItemType item) const;
+   void GetDescendants(TreeNode* node, ItemType item) const;
 };
 
 #endif
