@@ -290,10 +290,16 @@ void Tree::GetDescendants(TreeNode* node, ItemType item) const
     }
     else  
     {
-      cout << "Left:"; 
-      node->left->info.Print();
+      cout << "Left:";
+      if (node->left != NULL)
+      {
+        node->left->info.Print();
+      }
       cout << "Right:"; 
-      node->right->info.Print();
+      if (node->left != NULL)
+      {
+        node->right->info.Print();
+      }
     }
   }
 }
