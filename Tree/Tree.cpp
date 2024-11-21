@@ -245,22 +245,21 @@ void Tree::Ancestors(ItemType item) const
   }
 }
 
-bool Tree::GetAncestors(TreeNode* node, ItemType item) const
+void Tree::GetAncestors(TreeNode* node, ItemType item) const
 {
-  if (node == NULL)
+  if (node != NULL)
   {
-    return false;
+    if (item.ComparedTo(node->info)== LESS)
+    {
+      node->info.Print();
+      GetAncestors(node->left, item);
+    }
+    else if (item.ComparedTo(node->info)== GREATER)
+    {
+      node->info.Print();
+      GetAncestors(node->right, item);
+    }
   }
-  if(item.ComparedTo(node->info)== EQUAL)
-  {
-    return true;
-  }
-  if (GetAncestors(node->left, item)||GetAncestors(node->right,item))
-  {
-    node->info.Print();
-    return true;
-  }
-  return false;
 }
 
 void Tree::Descendants(ItemType item) const
@@ -279,28 +278,42 @@ void Tree::Descendants(ItemType item) const
 
 void Tree::GetDescendants(TreeNode* node, ItemType item) const
 {
-  if (node == NULL)
+  if (node != NULL)
   {
-    return;
-  }
-  if (item.ComparedTo(node->info)== LESS)
-  {
-    GetDescendants(node->left, item);
-  }
-  else if (item.ComparedTo(node->info)== GREATER)
-  {
-    GetDescendants(node->right, item);
-  }
-  else  
-  {
-    cout << "Left:"; 
-    node->left->info.Print();
-    cout << "Right:"; 
-    node->right->info.Print();
+    if (item.ComparedTo(node->info)== LESS)
+    {
+      GetDescendants(node->left, item);
+    }
+    else if (item.ComparedTo(node->info)== GREATER)
+    {
+      GetDescendants(node->right, item);
+    }
+    else  
+    {
+      cout << "Left:"; 
+      node->left->info.Print();
+      cout << "Right:"; 
+      node->right->info.Print();
+    }
   }
 }
 
 void Tree::Swap(Tree & newTree)
 {
+  SwapNode(root, newTree.root);
+}
 
+void Tree::SwapNode(TreeNode * node, TreeNode * &newNode) 
+{
+  if (node ==  NULL)
+  {
+    newNode = NULL;
+  }
+  else
+  {
+    newNode = new TreeNode;
+    newNode->info = node->info;
+    SwapNode(node->left, newNode->right);
+    SwapNode(node->right, newNode->left);
+  }
 }

@@ -38,6 +38,7 @@ int main()
     newTree.Print();
 
     // Test LeafCount()
+    cout << "Test LeafCount()" << endl;
     cout << "There are " << tree.LeafCount() << " leaf nodes" << endl;
 
     return 0;
