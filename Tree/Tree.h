@@ -47,7 +47,7 @@ public:
    void Print(ofstream & output) const;
    void Print() const;
 
-   /* New functions*/
+   // New functions
    int LeafCount() const;
    void Ancestors(ItemType item) const;
    void Descendants(ItemType item) const;
@@ -69,6 +69,8 @@ private:
    void GetPredecessor (TreeNode * tree, ItemType & item);
    void PrintTree(TreeNode * tree, ostream& output) const;
 
+   // New auxiliary functions
+   int NumLeaves(TreeNode * node) const;
 };
 
 #endif

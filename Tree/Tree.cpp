@@ -215,7 +215,20 @@ void Tree::PrintTree(TreeNode* tree, ostream& output) const
 /* New functions*/
 int Tree::LeafCount() const
 {
-  return 0;
+  return NumLeaves(root);
+}
+
+int Tree::NumLeaves(TreeNode * node) const
+{
+  if (node == NULL)
+  {
+    return 0;
+  }
+  if ((node->left == NULL) && (node->right == NULL))
+  {
+    return 1;
+  }
+  return (NumLeaves(node->left) + NumLeaves(node->right));
 }
    
 void Tree::Ancestors(ItemType item) const

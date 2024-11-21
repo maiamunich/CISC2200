@@ -20,7 +20,7 @@ int main()
     tree.Print();
 
     // Count the leaves in the tree
-    cout << "The tree has" << tree.LeafCount() << "elements" << endl;
+    cout << "The tree has " << tree.GetLength() << " elements" << endl;
 
     // Test ancestors
     cout << "Test Ancestors for: C" << endl;
@@ -38,7 +38,7 @@ int main()
     newTree.Print();
 
     // Test LeafCount()
-    cout << "There are" << tree.LeafCount() << "leaf nodes" << endl;
+    cout << "There are " << tree.LeafCount() << " leaf nodes" << endl;
 
     return 0;
 }
