@@ -7,6 +7,7 @@ int main()
     Tree tree;
     ItemType item;
 
+    cout << "Testing as in typescript.pdf" << endl;
     // Insert items in the tree
     char letters[6] = {'F','N','R','D','G','C'};
     for (int i=0; i<6; i++)
@@ -40,6 +41,22 @@ int main()
     // Test LeafCount()
     cout << "Test LeafCount()" << endl;
     cout << "There are " << tree.LeafCount() << " leaf nodes" << endl;
+
+    cout << "End testing as in typescript.pdf" << endl;
+
+    cout << "Testing other conditions" << endl;
+
+    // Test ancestors and descendants of letters not in the tree
+    char test = 'A';
+    item.Initialize(test);
+
+    // Test ancestors
+    cout << "Test Ancestors for: " << test << endl;
+    tree.Ancestors(item);
+
+    // Test descendants
+    cout << "Test Descendants for: " << test << endl;
+    tree.Descendants(item);
 
     return 0;
 }
