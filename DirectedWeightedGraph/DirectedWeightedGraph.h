@@ -15,7 +15,14 @@ class VertexType{
        ItemType item;
        MARK mark;        //default mark = DEFAULT; if visited, mark= VISITED; 
                         //if queued, mark = QUEUED;
-                        
+
+       // Equality operator
+       bool operator==(const VertexType& other) const 
+       {
+          // Compare both item and mark
+          return (item.ComparedTo(other.item) == EQUAL && mark == other.mark);
+       }
+
 };
 
 const int NULL_EDGE = 0;

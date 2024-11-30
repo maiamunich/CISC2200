@@ -9,11 +9,17 @@ int main()
     DirectedWeightedGraph graph(num_vtx);
     VertexType vertex[MAX_VERTEX];
 
+    // Add vertices
     for (int i = 0; i < num_vtx; i++)
     {
         vertex[i].item.Initialize(i);
         graph.AddVertex(vertex[i]);
     }
+
+    graph.Print();
+
+    // Add edges
+    
 
 
 
