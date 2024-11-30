@@ -106,7 +106,7 @@ void DirectedWeightedGraph::DeleteVertex(VertexType v)
 // before deleting.
 void DirectedWeightedGraph::DeleteEdge(VertexType v1, VertexType v2)
 {
-    if(!IsEmpty() && VertexExists(v1) && VertexExists(v2) && !EdgeExists(v1, v2))
+    if(!IsEmpty() && VertexExists(v1) && VertexExists(v2) && EdgeExists(v1, v2))
     {
         int row, col;
         row = IndexIs(v1);
@@ -118,7 +118,7 @@ void DirectedWeightedGraph::DeleteEdge(VertexType v1, VertexType v2)
 // Find whether there is an edge from v1 to v2.
 int DirectedWeightedGraph::GetWeight(VertexType v1, VertexType v2)
 {
-    if(!IsEmpty() && VertexExists(v1) && VertexExists(v2) && !EdgeExists(v1, v2))
+    if(!IsEmpty() && VertexExists(v1) && VertexExists(v2) && EdgeExists(v1, v2))
     {
         int row, col;
         row = IndexIs(v1);
@@ -184,17 +184,57 @@ void DirectedWeightedGraph::Print()
 
 void DirectedWeightedGraph::MarkVertex(VertexType v, MARK m)//mark whether the vertex has been visited or queued
 {
-
+    if (!IsEmpty() && VertexExists(v))
+    {
+        int index = IndexIs(v);
+        vertices[index].mark = m;
+    }
 }
 
 void DirectedWeightedGraph::GetNeighbors(VertexType v, queue<VertexType>& nq)
 {
-
+    if (!IsEmpty() && VertexExists(v))
+    {
+        int index = IndexIs(v);
+        for (int i = 0; i < numberOfVertices; i++)
+        {
+            if (edges[index][i] != NULL_EDGE && vertices[i].mark == DEFAULT)
+            {
+                nq.push(vertices[i]);
+                MarkVertex(vertices[i], QUEUED);
+            }
+        }
+    }
 }
         
 void DirectedWeightedGraph::BFT(VertexType v)
 {
+    if (!IsEmpty() && VertexExists(v))
+    {
+        // Reset the marks
+        for (int i = 0; i < numberOfVertices; i++)
+        {
+            MarkVertex(vertices[i], DEFAULT);
+        }
 
+        queue<VertexType> nq;
+        nq.push(v);
+        MarkVertex(v, QUEUED);
+        //GetNeighbors(v, nq);
+        while (!nq.empty())
+        {
+            VertexType w = nq.front();
+            nq.pop();
+            //if (VertexExists(w) && vertices[IndexIs(w)].mark != VISITED)
+            //{
+                cout << w.item.GetValue() << " ";
+                MarkVertex(w, VISITED);
+                GetNeighbors(w, nq);
+            //}
+        }
+        cout << endl;
+
+    }
 }
 
 //Find the Index of the vertex in the graph, private member function

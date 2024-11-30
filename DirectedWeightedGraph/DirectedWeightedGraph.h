@@ -20,7 +20,7 @@ class VertexType{
        bool operator==(const VertexType& other) const 
        {
           // Compare both item and mark
-          return (item.ComparedTo(other.item) == EQUAL && mark == other.mark);
+          return (item.ComparedTo(other.item) == EQUAL);
        }
 
 };

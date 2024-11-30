@@ -16,8 +16,6 @@ int main()
         graph.AddVertex(vertex[i]);
     }
 
-    graph.Print();
-
     // Add edges
     // Edge v1->v2
     graph.AddEdge(vertex[0], vertex[1], 100);
@@ -42,11 +40,15 @@ int main()
     graph.Print();
 
     cout << "The Breadth First Traversal Results:" << endl;
-    //graph.BFT();
+    graph.BFT(vertex[0]);
 
+    cout << endl;
     cout << "Delete v4" << endl;
     graph.DeleteVertex(vertex[3]);
     graph.Print();
+
+    cout << "The Breadth First Traversal Results:" << endl;
+    graph.BFT(vertex[0]);
 
     return 0;
 }
