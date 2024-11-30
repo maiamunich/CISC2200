@@ -19,8 +19,27 @@ int main()
     graph.Print();
 
     // Add edges
+    // Edge v1->v2
+    graph.AddEdge(vertex[0], vertex[1], 100);
+    // Edge v1->v3
+    graph.AddEdge(vertex[0], vertex[2], 50);
+    // Edge v1->v4
+    graph.AddEdge(vertex[0], vertex[3], 150);
+    // Edge v3->v1
+    graph.AddEdge(vertex[2], vertex[0], 10);
+    // Edge v3->v7
+    graph.AddEdge(vertex[2], vertex[6], 50);
+    // Edge v4->v5
+    graph.AddEdge(vertex[3], vertex[4], 200);
+    // Edge v4->v6
+    graph.AddEdge(vertex[3], vertex[5], 100);
+    // Edge v5->v6
+    graph.AddEdge(vertex[4], vertex[5], 100);
+    // Edge v7->v6
+    graph.AddEdge(vertex[6], vertex[5], 30);
 
-
+    cout << "After inserting all 7 vertices and 9 edges:" << endl;
+    graph.Print();
 
 
     return 0;
