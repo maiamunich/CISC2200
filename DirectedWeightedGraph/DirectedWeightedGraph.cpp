@@ -75,34 +75,29 @@ void DirectedWeightedGraph::DeleteVertex(VertexType v)
     if (!IsEmpty() && VertexExists(v))
     {
         int index = IndexIs(v);
-        for (int i = index; i < numberOfVertices; i++)
-        {
-            // Copy next vertex over the current one
-            vertices[i] = vertices[i+1];
 
+        // Shift vertices left
+        for (int i = index; i < numberOfVertices - 1; i++)
+        {
+            vertices[i] = vertices[i + 1];
+        }
+
+        // Shift edges left and up
+        for (int i = index; i < numberOfVertices - 1; i++)
+        {
             for (int j = 0; j < numberOfVertices; j++)
             {
-                if (j == index)
-                {
-                    if (EdgeExists(v, vertices[j]))
-                    {
-                        DeleteEdge(v, vertices[j]);
-                        DeleteEdge(vertices[j], v);
-                    }
-                }
-                else
-                {
-                    if (EdgeExists(vertices[i+1], vertices[j]))
-                    {
-                        edges[i][j] = edges[i+1][j];
-                    }
-                    if (EdgeExists(vertices[j], vertices[i+1]))
-                    {
-                        edges[j][i] = edges[j][i+1];
-                    }
-                }
+                edges[i][j] = edges[i + 1][j]; // Shift rows up
             }
         }
+        for (int j = index; j < numberOfVertices - 1; j++)
+        {
+            for (int i = 0; i < numberOfVertices; i++)
+            {
+                edges[i][j] = edges[i][j + 1]; // Shift columns left
+            }
+        }
+
         numberOfVertices--;
     }
 }
