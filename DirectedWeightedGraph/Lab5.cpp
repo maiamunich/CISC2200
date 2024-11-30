@@ -12,14 +12,14 @@ int main()
     // Add vertices
     for (int i = 0; i < num_vtx; i++)
     {
-        vertex[i].item.Initialize(i);
+        vertex[i].item.Initialize(i+1);
         graph.AddVertex(vertex[i]);
     }
 
     graph.Print();
 
     // Add edges
-    
+
 
 
 

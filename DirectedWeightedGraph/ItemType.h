@@ -42,6 +42,11 @@ public : 			// 4 public member functions
     this->value  =  value;              
   } 	           
 
+  int GetValue()
+  {
+    return value;
+  }
+
 private :			// 1 private data member
 	char  value; 		// could be any type 
 } ;

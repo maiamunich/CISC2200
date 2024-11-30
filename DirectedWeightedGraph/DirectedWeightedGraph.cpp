@@ -148,19 +148,19 @@ void DirectedWeightedGraph::Print()
 
     for (int i = 0; i < numberOfVertices; i++)
     {
-        cout << IndexIs(vertices[i])+1 << " ";
+        cout << vertices[i].item.GetValue() << " ";
     }
     cout << endl;
 
     cout << "Edges are :" << endl;
     for (int i = 0; i < numberOfVertices; i++)
     {
-        cout << "\t" << IndexIs(vertices[i])+1;
+        cout << "\t" << vertices[i].item.GetValue();
     }
     cout << endl;
     for (int i = 0; i < numberOfVertices; i++)
     {
-        cout << IndexIs(vertices[i])+1;
+        cout << vertices[i].item.GetValue();
         for (int j = 0; j < numberOfVertices; j++)
         {
             cout << "\t" << edges[i][j];
