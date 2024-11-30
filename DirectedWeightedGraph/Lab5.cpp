@@ -41,6 +41,12 @@ int main()
     cout << "After inserting all 7 vertices and 9 edges:" << endl;
     graph.Print();
 
+    cout << "The Breadth First Traversal Results:" << endl;
+    //graph.BFT();
+
+    cout << "Delete v4" << endl;
+    graph.DeleteVertex(vertex[3]);
+    graph.Print();
 
     return 0;
 }

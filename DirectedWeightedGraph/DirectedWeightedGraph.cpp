@@ -72,7 +72,7 @@ void DirectedWeightedGraph::AddEdge(VertexType v1, VertexType v2, int w)
 // The vertex must be in the graph before the deletion.
 void DirectedWeightedGraph::DeleteVertex(VertexType v)
 {
-    if (!IsFull() && VertexExists(v))
+    if (!IsEmpty() && VertexExists(v))
     {
         int index = IndexIs(v);
         for (int i = index; i < numberOfVertices; i++)
@@ -82,8 +82,25 @@ void DirectedWeightedGraph::DeleteVertex(VertexType v)
 
             for (int j = 0; j < numberOfVertices; j++)
             {
-             edges[i][j] = edges[i+1][j];
-             edges[j][i] = edges[j][i+1];
+                if (j == index)
+                {
+                    if (EdgeExists(v, vertices[j]))
+                    {
+                        DeleteEdge(v, vertices[j]);
+                        DeleteEdge(vertices[j], v);
+                    }
+                }
+                else
+                {
+                    if (EdgeExists(vertices[i+1], vertices[j]))
+                    {
+                        edges[i][j] = edges[i+1][j];
+                    }
+                    if (EdgeExists(vertices[j], vertices[i+1]))
+                    {
+                        edges[j][i] = edges[j][i+1];
+                    }
+                }
             }
         }
         numberOfVertices--;
@@ -144,7 +161,7 @@ bool DirectedWeightedGraph::VertexExists(VertexType v)
 
 void DirectedWeightedGraph::Print()
 {
-    cout << "There are " << numberOfVertices << "vertices ins this Graph" << endl;
+    cout << "There are " << numberOfVertices << " vertices in this Graph" << endl;
 
     for (int i = 0; i < numberOfVertices; i++)
     {
