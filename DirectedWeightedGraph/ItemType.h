@@ -37,12 +37,10 @@ public : 			// 4 public member functions
    cout  <<  value  <<  endl;
   }
 
-   void Initialize( int value )
+  void Initialize( int value )
   {
     this->value  =  value;              
   } 	           
-
-
 
 private :			// 1 private data member
 	char  value; 		// could be any type 

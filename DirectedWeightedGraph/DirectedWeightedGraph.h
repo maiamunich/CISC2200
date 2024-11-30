@@ -15,6 +15,7 @@ class VertexType{
        ItemType item;
        MARK mark;        //default mark = DEFAULT; if visited, mark= VISITED; 
                         //if queued, mark = QUEUED;
+                        
 };
 
 const int NULL_EDGE = 0;
@@ -61,6 +62,9 @@ class DirectedWeightedGraph{
         int** edges;   //save all the edges
 
         int IndexIs(VertexType v);
+
+        // Utility functions
+        void AllocateGraph(int max_vertices);
 
 };
 
