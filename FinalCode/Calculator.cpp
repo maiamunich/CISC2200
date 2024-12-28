@@ -101,11 +101,11 @@ void Calculator::EvaluatePostfix()
         }
         else if (c == '+' || c == '-' || c == '*' || c == '/') 
         {
-            int operand2 = operandStack.top();
+            double operand2 = operandStack.top();
             operandStack.pop();
-            int operand1 = operandStack.top();
+            double operand1 = operandStack.top();
             operandStack.pop();
-            int tempResult = evaluate(operand1, operand2, c);
+            double tempResult = evaluate(operand1, operand2, c);
             operandStack.push(tempResult);
         }
     }
@@ -116,7 +116,7 @@ void Calculator::SetInfixExpression(std::string expression) {
     infixExpression = expression;
 }
 
-int Calculator::evaluate(int a, int b, char op) {
+double Calculator::evaluate(double a, double b, char op) {
     switch(op) {
         case '+': return a + b;
         case '-': return a - b;
@@ -124,4 +124,8 @@ int Calculator::evaluate(int a, int b, char op) {
         case '/': return b != 0 ? a / b : 0;
         default: return 0;
     }
+}
+
+double Calculator::getResult() {
+    return result;
 }

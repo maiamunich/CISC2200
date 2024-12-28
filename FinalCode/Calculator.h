@@ -15,6 +15,7 @@ public:
     void CheckError();
     void ConvertToPostfix();
     void EvaluatePostfix();
+    double getResult();
 
     void SetInfixExpression(std::string expression);
     
@@ -26,7 +27,7 @@ private:
     std::stack<char> operatorStack;
     std::stack<double> operandStack;
     int precedence(char op);
-    int evaluate(int a, int b, char op);
+    double evaluate(double a, double b, char op);
     
 };
 
