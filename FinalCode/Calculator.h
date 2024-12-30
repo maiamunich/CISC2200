@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <stack>
+#include <string>
+#include "Syntax.h"
 
 class Calculator {
 public:
