@@ -8,7 +8,7 @@ int main() {
     Calculator calculator;
 
    // First calculation
-    std::cout << "First calculation" << std::endl;
+    std::cout << "First calculation --------------------------------" << std::endl;
     calculator.SetInfixExpression("1 + 2 * 3");
     calculator.DisplayInfixExpression();
     //calculator.ConvertToPostfix();
@@ -25,7 +25,7 @@ int main() {
     }
 
     // Second calculation - use the same calculator object
-    std::cout << "Second calculation" << std::endl;
+    std::cout << std::endl << "Second calculation --------------------------------" << std::endl;
     calculator.SetInfixExpression("(1*3)+4*(5/3)*6");
     calculator.DisplayInfixExpression();
     //calculator.ConvertToPostfix();
@@ -42,7 +42,7 @@ int main() {
     }
 
     // Third calculation
-    std::cout << "Third calculation" << std::endl;
+    std::cout << std::endl << "Third calculation --------------------------------" << std::endl;
     calculator.SetInfixExpression("(6 + 13) * 2 - (5 + 1) / 3");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
@@ -56,49 +56,49 @@ int main() {
     // Syntax errors --------------------------------
 
     // Empty expression
-    std::cout << "Empty expression" << std::endl;
+    std::cout << std::endl << "Empty expression --------------------------------" << std::endl;
     calculator.SetInfixExpression("");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
     
     // Unmatched parentheses
-    std::cout << "Unmatched parentheses" << std::endl;
+    std::cout << std::endl << "Unmatched parentheses --------------------------------" << std::endl;
     calculator.SetInfixExpression("(1+2))*3");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
 
     // Invalid character
-    std::cout << "Invalid character" << std::endl;
+    std::cout << std::endl << "Invalid character --------------------------------" << std::endl;
     calculator.SetInfixExpression("1 @ 2 + 3");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
 
     // Adjacent operators
-    std::cout << "Adjacent operators" << std::endl;
+    std::cout << std::endl << "Adjacent operators --------------------------------" << std::endl;
     calculator.SetInfixExpression("1 ++ 2");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
 
     // Missing Operator
-    std::cout << "Missing Operator" << std::endl;
+    std::cout << std::endl << "Missing Operator --------------------------------" << std::endl;
     calculator.SetInfixExpression("1 2 + 3");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
 
     // Missing Operand
-    std::cout << "Missing Operand" << std::endl;
+    std::cout << std::endl << "Missing Operand --------------------------------" << std::endl;
     calculator.SetInfixExpression("1 + * 3");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
 
     // Invalid operator
-    std::cout << "Invalid operator" << std::endl;
+    std::cout << std::endl << "Invalid operator --------------------------------" << std::endl;
     calculator.SetInfixExpression("2 * 3 % 4");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
 
     // Invalid character
-    std::cout << "Invalid character" << std::endl;
+    std::cout << std::endl << "Invalid character --------------------------------" << std::endl;
     calculator.SetInfixExpression("{(2 * 3) / 4}");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
@@ -106,37 +106,37 @@ int main() {
     //Checkng Semantic errors --------------------------------
 
     // Division by zero
-    std::cout << "Division by zero" << std::endl;
+    std::cout << std::endl << "Division by zero --------------------------------" << std::endl;
     calculator.SetInfixExpression("5 / 0");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
 
     // Arithmetic overflow
-    std::cout << "Arithmetic overflow" << std::endl;
+    std::cout << std::endl << "Arithmetic overflow --------------------------------" << std::endl;
     calculator.SetInfixExpression("999999999 * 999999999");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
 
     // Undefined operation
-    std::cout << "Undefined operation" << std::endl;
+    std::cout << std::endl << "Undefined operation --------------------------------" << std::endl;
     calculator.SetInfixExpression("5 +");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
 
     // Invalid operand
-    std::cout << "Invalid operand" << std::endl;
+    std::cout << std::endl << "Invalid operand --------------------------------" << std::endl;
     calculator.SetInfixExpression("5 $ 3");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
 
     // Missing operand
-    std::cout << "Missing operand" << std::endl;
+    std::cout << std::endl << "Missing operand --------------------------------" << std::endl;
     calculator.SetInfixExpression("2 * x + 4");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
 
     // Division by zero
-    std::cout << "Division by zero" << std::endl;
+    std::cout << std::endl << "Division by zero --------------------------------" << std::endl;
     calculator.SetInfixExpression("(5 * 2) / (3 - 3)");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
