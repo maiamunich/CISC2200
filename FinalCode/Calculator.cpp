@@ -82,7 +82,8 @@ void Calculator::ConvertToPostfix()
             lastWasOperator = false;  // Changed this
             lastWasNumber = false;
         }
-        else if (c == ')') {
+        else if (c == ')') 
+        {
             parenthesesCount--;
             // Check for negative count (too many closing parentheses)
             if (parenthesesCount < 0) 
@@ -158,7 +159,8 @@ void Calculator::ConvertToPostfix()
     }
 
     // Empty remaining operators
-    while (!operatorStack.empty()) {
+    while (!operatorStack.empty()) 
+    {
         postfixExpression += operatorStack.top();
         operatorStack.pop();
     }
@@ -191,11 +193,13 @@ void Calculator::EvaluatePostfix()
 
             // Check for potential overflow
             double tempResult = 0;
-            try {
+            try 
+            {
                 tempResult = evaluate(operand1, operand2, c);
                 
                 // Check if result is too large
-                if (tempResult > INT_MAX || tempResult < INT_MIN) {
+                if (tempResult > INT_MAX || tempResult < INT_MIN) 
+                {
                     throw SemanticError(SemanticErrorType::ARITHMETIC_OVERFLOW, postfixExpression);
                 }
             } catch (...) {
@@ -221,22 +225,30 @@ double Calculator::evaluate(double a, double b, char op) {
     switch(op) {
         case '+': 
             if ((b > 0 && a > DBL_MAX - b) || (b < 0 && a < DBL_MIN - b))
+            {
                 throw SemanticError(SemanticErrorType::ARITHMETIC_OVERFLOW, "");
+            }
             return a + b;
             
         case '-': 
             if ((b < 0 && a > DBL_MAX + b) || (b > 0 && a < DBL_MIN + b))
+            {
                 throw SemanticError(SemanticErrorType::ARITHMETIC_OVERFLOW, "");
+            }
             return a - b;
             
         case '*': 
             if (a != 0 && (a * b) / a != b)
+            {
                 throw SemanticError(SemanticErrorType::ARITHMETIC_OVERFLOW, "");
+            }
             return a * b;
             
         case '/': 
             if (b == 0)
+            {
                 throw SemanticError(SemanticErrorType::DIVISION_BY_ZERO, "");
+            }
             return a / b;
             
         default: 
