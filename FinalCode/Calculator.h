@@ -23,7 +23,7 @@ public:
     
 
 private:
-    int result;
+    double result;
     std::string infixExpression;
     std::string postfixExpression;
     std::stack<char> operatorStack;

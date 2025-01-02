@@ -3,8 +3,6 @@
 #include "Semantic.h"
 #include <iostream>
 #include <cfloat>
-#include <limits>
-
 
 Calculator::Calculator() 
 {
@@ -74,8 +72,6 @@ void Calculator::ConvertToPostfix()
     // Add parentheses counter
     int parenthesesCount = 0;
     
-    std::string currentNumber = "";  // Buffer for building multi-digit numbers
-
     for (char c : infixExpression) 
     {
         if (c == '(') {
@@ -84,8 +80,7 @@ void Calculator::ConvertToPostfix()
             lastWasOperator = false;  // Changed this
             lastWasNumber = false;
         }
-        else if (c == ')') 
-        {
+        else if (c == ')') {
             parenthesesCount--;
             // Check for negative count (too many closing parentheses)
             if (parenthesesCount < 0) 
@@ -108,29 +103,8 @@ void Calculator::ConvertToPostfix()
             lastWasOperator = false;
             lastWasNumber = true;
         }
-        else if (c >= '0' && c <= '9') 
-        {
-            currentNumber += c;  // Add digit to current number
-            lastWasOperator = false;
-            lastWasNumber = true;
-        }
-        else if (c == ' ') 
-        {
-            // If we were building a number, add it to postfix
-            if (!currentNumber.empty()) {
-                postfixExpression += currentNumber + " ";
-                currentNumber = "";
-            }
-            continue;
-        }
         else if (c == '+' || c == '-' || c == '*' || c == '/') 
         {
-            // First add any pending number
-            if (!currentNumber.empty()) {
-                postfixExpression += currentNumber + " ";
-                currentNumber = "";
-            }
-
             // First check for missing operand
             if (!lastWasNumber && !lastWasOperator) {
                 throw SyntaxError(SyntaxErrorType::MISSING_OPERAND, infixExpression);
@@ -144,22 +118,31 @@ void Calculator::ConvertToPostfix()
                    precedence(c) <= precedence(operatorStack.top())) 
             {
                 postfixExpression += operatorStack.top();
-                postfixExpression += " ";  // Add space after operator
                 operatorStack.pop();
             }
             operatorStack.push(c);
             lastWasOperator = true;
             lastWasNumber = false;
         }
+        else if (c >= '0' && c <= '9') 
+        {
+            if(lastWasNumber)
+            {
+                throw SyntaxError(SyntaxErrorType::MISSING_OPERATOR, infixExpression);
+            }
+            postfixExpression += c;
+            std::cout << " "<< std::endl;
+            lastWasOperator = false;
+            lastWasNumber = true;
+        }
+        else if (c == ' ') 
+        {
+            continue;
+        }
         else 
         {
             throw SyntaxError(SyntaxErrorType::INVALID_CHARACTER, infixExpression);
         }
-    }
-
-    // Don't forget to add the last number if there is one
-    if (!currentNumber.empty()) {
-        postfixExpression += currentNumber + " ";
     }
 
     // Check for unclosed parentheses at the end
@@ -173,8 +156,7 @@ void Calculator::ConvertToPostfix()
     }
 
     // Empty remaining operators
-    while (!operatorStack.empty()) 
-    {
+    while (!operatorStack.empty()) {
         postfixExpression += operatorStack.top();
         operatorStack.pop();
     }
@@ -182,20 +164,11 @@ void Calculator::ConvertToPostfix()
 
 void Calculator::EvaluatePostfix() 
 {
-    std::string currentNumber = "";
-
     for (char c : postfixExpression) 
     {
         if (c >= '0' && c <= '9') 
         {
-            currentNumber += c;
-        }
-        else if (c == ' ') 
-        {
-            if (!currentNumber.empty()) {
-                operandStack.push(std::stod(currentNumber));
-                currentNumber = "";
-            }
+            operandStack.push(c - '0');
         }
         else if (c == '+' || c == '-' || c == '*' || c == '/') 
         {
@@ -216,13 +189,11 @@ void Calculator::EvaluatePostfix()
 
             // Check for potential overflow
             double tempResult = 0;
-            try 
-            {
+            try {
                 tempResult = evaluate(operand1, operand2, c);
                 
                 // Check if result is too large
-                if (tempResult > INT_MAX || tempResult < INT_MIN) 
-                {
+                if (tempResult > INT_MAX || tempResult < INT_MIN) {
                     throw SemanticError(SemanticErrorType::ARITHMETIC_OVERFLOW, postfixExpression);
                 }
             } catch (...) {
@@ -242,46 +213,28 @@ void Calculator::EvaluatePostfix()
 
 void Calculator::SetInfixExpression(std::string expression) {
     infixExpression = expression;
-    postfixExpression = "";  // Clear postfix expression
-    result = 0;             // Reset result
-    
-    // Clear both stacks
-    while (!operandStack.empty()) {
-        operandStack.pop();
-    }
-    while (!operatorStack.empty()) {
-        operatorStack.pop();
-    }
 }
 
 double Calculator::evaluate(double a, double b, char op) {
     switch(op) {
         case '+': 
             if ((b > 0 && a > DBL_MAX - b) || (b < 0 && a < DBL_MIN - b))
-            {
                 throw SemanticError(SemanticErrorType::ARITHMETIC_OVERFLOW, "");
-            }
             return a + b;
             
         case '-': 
             if ((b < 0 && a > DBL_MAX + b) || (b > 0 && a < DBL_MIN + b))
-            {
                 throw SemanticError(SemanticErrorType::ARITHMETIC_OVERFLOW, "");
-            }
             return a - b;
             
         case '*': 
             if (a != 0 && (a * b) / a != b)
-            {
                 throw SemanticError(SemanticErrorType::ARITHMETIC_OVERFLOW, "");
-            }
             return a * b;
             
         case '/': 
             if (b == 0)
-            {
                 throw SemanticError(SemanticErrorType::DIVISION_BY_ZERO, "");
-            }
             return a / b;
             
         default: 
