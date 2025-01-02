@@ -74,6 +74,8 @@ void Calculator::ConvertToPostfix()
     // Add parentheses counter
     int parenthesesCount = 0;
     
+    std::string currentNumber = "";  // Buffer for building multi-digit numbers
+
     for (char c : infixExpression) 
     {
         if (c == '(') {
@@ -106,8 +108,29 @@ void Calculator::ConvertToPostfix()
             lastWasOperator = false;
             lastWasNumber = true;
         }
+        else if (c >= '0' && c <= '9') 
+        {
+            currentNumber += c;  // Add digit to current number
+            lastWasOperator = false;
+            lastWasNumber = true;
+        }
+        else if (c == ' ') 
+        {
+            // If we were building a number, add it to postfix
+            if (!currentNumber.empty()) {
+                postfixExpression += currentNumber + " ";
+                currentNumber = "";
+            }
+            continue;
+        }
         else if (c == '+' || c == '-' || c == '*' || c == '/') 
         {
+            // First add any pending number
+            if (!currentNumber.empty()) {
+                postfixExpression += currentNumber + " ";
+                currentNumber = "";
+            }
+
             // First check for missing operand
             if (!lastWasNumber && !lastWasOperator) {
                 throw SyntaxError(SyntaxErrorType::MISSING_OPERAND, infixExpression);
@@ -121,31 +144,22 @@ void Calculator::ConvertToPostfix()
                    precedence(c) <= precedence(operatorStack.top())) 
             {
                 postfixExpression += operatorStack.top();
+                postfixExpression += " ";  // Add space after operator
                 operatorStack.pop();
             }
             operatorStack.push(c);
             lastWasOperator = true;
             lastWasNumber = false;
         }
-        else if (c >= '0' && c <= '9') 
-        {
-            if(lastWasNumber)
-            {
-                throw SyntaxError(SyntaxErrorType::MISSING_OPERATOR, infixExpression);
-            }
-            postfixExpression += c;
-            std::cout << " "<< std::endl;
-            lastWasOperator = false;
-            lastWasNumber = true;
-        }
-        else if (c == ' ') 
-        {
-            continue;
-        }
         else 
         {
             throw SyntaxError(SyntaxErrorType::INVALID_CHARACTER, infixExpression);
         }
+    }
+
+    // Don't forget to add the last number if there is one
+    if (!currentNumber.empty()) {
+        postfixExpression += currentNumber + " ";
     }
 
     // Check for unclosed parentheses at the end
@@ -168,11 +182,20 @@ void Calculator::ConvertToPostfix()
 
 void Calculator::EvaluatePostfix() 
 {
+    std::string currentNumber = "";
+
     for (char c : postfixExpression) 
     {
         if (c >= '0' && c <= '9') 
         {
-            operandStack.push(c - '0');
+            currentNumber += c;
+        }
+        else if (c == ' ') 
+        {
+            if (!currentNumber.empty()) {
+                operandStack.push(std::stod(currentNumber));
+                currentNumber = "";
+            }
         }
         else if (c == '+' || c == '-' || c == '*' || c == '/') 
         {
@@ -219,6 +242,16 @@ void Calculator::EvaluatePostfix()
 
 void Calculator::SetInfixExpression(std::string expression) {
     infixExpression = expression;
+    postfixExpression = "";  // Clear postfix expression
+    result = 0;             // Reset result
+    
+    // Clear both stacks
+    while (!operandStack.empty()) {
+        operandStack.pop();
+    }
+    while (!operatorStack.empty()) {
+        operatorStack.pop();
+    }
 }
 
 double Calculator::evaluate(double a, double b, char op) {
