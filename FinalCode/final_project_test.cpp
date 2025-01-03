@@ -1,6 +1,7 @@
 #include "Calculator.h"
 #include "Semantic.h"
 #include "Syntax.h"
+#include <limits>
 using namespace std;
 
 int main() {
@@ -163,5 +164,42 @@ int main() {
     calculator.SetInfixExpression("(5 * 2) / (3 - 3)");
     calculator.DisplayInfixExpression();
     calculator.CheckError();
+
+    // User Input Section
+    std::cout << std::endl << "User Input Calculator --------------------------------" << std::endl;
+    std::cout << "Enter expressions to calculate (type 'exit' to quit)" << std::endl;
+    std::cout << "Example: 1 + 2 * 3" << std::endl;
+    
+    std::string userInput;
+    while (true) 
+    {
+        std::cout << "\nEnter expression: ";
+        std::cout.flush();  // Flush the output buffer
+        
+        std::getline(std::cin, userInput);
+        if (std::cin.fail()) {
+            std::cin.clear();  // Clear error flags
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Clear input buffer
+            continue;
+        }
+        
+        if (userInput == "exit" || userInput == "quit") {
+            break;
+        }
+
+        try {
+            calculator.SetInfixExpression(userInput);
+            calculator.DisplayInfixExpression();
+            calculator.CheckError();
+            calculator.DisplayPostfixExpression();
+            calculator.DisplayResult();
+            std::cout.flush();  // Flush after displaying results
+        }
+        catch (...) {
+            // Errors are already displayed by CheckError()
+            continue;
+        }
+    }
+
     return 0;
 }
