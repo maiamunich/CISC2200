@@ -24,6 +24,23 @@ int main() {
         return 1;
     }
 
+   // First calculation
+    std::cout << "First-half calculation --------------------------------" << std::endl;
+    calculator.SetInfixExpression("10 + 2 * 3");
+    calculator.DisplayInfixExpression();
+    //calculator.ConvertToPostfix();
+    calculator.CheckError();
+    calculator.DisplayPostfixExpression();
+    //calculator.EvaluatePostfix();
+    calculator.DisplayResult();
+
+    // Check result
+    if (calculator.getResult() != (10+2*3)) 
+    {
+        std::cout << "Test failed: Expected result is " << (10+2*3) << ", but got " << calculator.getResult() << std::endl;
+        return 1;
+    }
+
     // Second calculation - use the same calculator object
     std::cout << std::endl << "Second calculation --------------------------------" << std::endl;
     calculator.SetInfixExpression("(1*3)+4*(5/3)*6");
@@ -51,6 +68,12 @@ int main() {
     //calculator.EvaluatePostfix();
     calculator.DisplayResult();
 
+    // Check result
+    if (calculator.getResult() != ((6+13)*2-(5+1)/3)) 
+    {
+        std::cout << "Test failed: Expected result is " << ((6+13)*2-(5+1)/3) << ", but got " << calculator.getResult() << std::endl;
+        return 1;
+    }
     // Checking for errors --------------------------------
 
     // Syntax errors --------------------------------

@@ -10,8 +10,7 @@ enum class SemanticErrorType {
     DIVISION_BY_ZERO,
     INVALID_OPERAND,
     ARITHMETIC_OVERFLOW,
-    UNDEFINED_OPERATION,
-    MISSING_OPERAND
+    UNDEFINED_OPERATION
 };
 
 class SemanticError : public std::exception {
@@ -29,9 +28,6 @@ public:
                 break;
             case SemanticErrorType::UNDEFINED_OPERATION:
                 message = "Undefined operation in expression: " + expr;
-                break;
-            case SemanticErrorType::MISSING_OPERAND:
-                message = "Missing operand in expression: " + expr;
                 break;
         }
     }
