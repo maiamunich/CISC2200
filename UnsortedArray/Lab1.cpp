@@ -1,3 +1,23 @@
+/*******************************************************************************
+ * File: Lab1.cpp
+ * Author: Maia Munich
+ * Course: CISC 2200
+ * Description: Test program for UnsortedListByArray class demonstrating
+ *              student data management with duplicate prevention and list
+ *              splitting functionality.
+ * 
+ * Test Features:
+ * - Interactive student data entry with validation
+ * - Duplicate FIDN prevention
+ * - Student information management (FIDN, first name, last name)
+ * - List splitting based on FIDN key values
+ * - Input validation and capacity management
+ * - List display and analysis
+ * 
+ * Data Structure: Unsorted array with student records
+ * Algorithm: Linear search, list splitting, duplicate checking
+ *******************************************************************************/
+
 #include "Student.h"
 #include "UnsortedListbyArray.h"
 #include <iostream> 
@@ -7,40 +27,52 @@ using namespace std;
 
 int main()
 {
-    UnsortedListByArray studentList, listOne, listTwo; //Create an UnsortedListByArray Object
-    string answer, key;
-    int MAX_ITEM = 6; 
+    // ============================================================================
+    // INITIALIZATION
+    // ============================================================================
+    
+    UnsortedListByArray studentList, listOne, listTwo; // Create list objects
+    string answer, key;                                // User input variables
+    int MAX_ITEM = 6;                                  // Maximum students allowed
+    
     cout<< "Please follow the prompt to enter students information, maximum number of students is 6. Type 'Y' to begin/continue, type 'N' to stop"<< endl; 
     cin >> answer;
-// create a while loop that checks that we dont go over the maxium abount of student '6' and gives the user the options of yes or no 
 
+    // ============================================================================
+    // STUDENT DATA ENTRY LOOP
+    // ============================================================================
+    
+    // Continue loop while user wants to add students and list isn't full
     while ((answer == "y" || answer == "Y")&& studentList.GetLength() < MAX_ITEM)
     {
-        string fidn, fn, ln;
-        //inside of the while loop
-        // read off students No. (make sure that this counts for if a student is repeated)
-        cout<<"Student No. "<< (studentList.GetLength() +1) << ":"<<endl;//(What data type do i put here )
-        cout<< "Student FIDN"<< endl;
-        cin >> fidn; //could this and the other two be setFIDN and SetFN and SetLN //students fidn
-        cout<< "Student First Name:"<< endl; 
-        cin >> fn;         //students first name 
-        cout<< "Student Last Name:"<< endl;
-        cin >> ln;        //students last name
-
-        ItemType newItem;
-        newItem.Initialize(fidn);
-        newItem.setFN(fn);
-        newItem.setLN(ln);
+        string fidn, fn, ln;  // Student data variables
         
+        // Prompt for student information
+        cout<<"Student No. "<< (studentList.GetLength() +1) << ":"<<endl;
+        cout<< "Student FIDN"<< endl;
+        cin >> fidn;  // Student FIDN (unique identifier)
+        cout<< "Student First Name:"<< endl; 
+        cin >> fn;    // Student first name
+        cout<< "Student Last Name:"<< endl;
+        cin >> ln;    // Student last name
+
+        // Create student item with all information
+        ItemType newItem;
+        newItem.Initialize(fidn);  // Set FIDN as key
+        newItem.setFN(fn);         // Set first name
+        newItem.setLN(ln);         // Set last name
+        
+        // Attempt to insert student (checks for duplicates)
         if(studentList.NewInsertItem(newItem))
         {
-            
             cout<<"A new Item has been inserted"<<endl;
         }
         else 
         {
            cout << "The item is not inserted since it is a duplicate." << endl;      
         }
+        
+        // Check if list is full or ask for continuation
         if(!studentList.IsFull())
         {
             cout << endl;
@@ -52,47 +84,48 @@ int main()
            cout<< "The list is full, you have to stop."<<endl;
            cout<<endl;
         }
-
     }
 
+    // ============================================================================
+    // DISPLAY COMPLETE STUDENT LIST
+    // ============================================================================
+    
     cout << "You have entered "<< MAX_ITEM<< " students into the database"<< endl;
     cout << "This is the list"<< endl;
-    studentList.Print();
+    studentList.Print();  // Display all students
 
+    // ============================================================================
+    // LIST SPLITTING OPERATION
+    // ============================================================================
+    
     cout<<endl;
-    cout << "Please enter the FIDN as the key vlue to split the student list: "<< endl; 
+    cout << "Please enter the FIDN as the key value to split the student list: "<< endl; 
     cin >> key;
     cout<<endl;
     
+    // Create item for splitting operation
     ItemType item;
     item.Initialize(key);
+    
+    // Split list based on FIDN key
     studentList.SplitList (item ,listOne ,listTwo);
 
+    // ============================================================================
+    // DISPLAY SPLIT RESULTS
+    // ============================================================================
+    
     cout << "Split the previous list with,: "<< key <<endl;
     cout << "After split:"<<endl;
     cout << "list one is : "<< endl;
-    listOne.Print();
+    listOne.Print();  // Display first split list
     cout<<endl; 
     cout<<endl;
     cout<< "list two is : "<<endl; 
-    listTwo.Print();
+    listTwo.Print();  // Display second split list
     cout<<endl; 
     cout<<endl;
     cout<<"After split, original list is : "<<endl; 
-    studentList.Print();
+    studentList.Print();  // Display original list (unchanged)
 
-
-
-    
-    // let user know that a new item has been inserted
-    //let user know if item was not inserted since it was a duplicate
-//out side while loop 
-// as user if they want to contine
-//when while loop finished let them know they have reached the max capacity of students they could enter
-// output all students using print function 
-
-// as for FIDN for the key value to split the tudent list
-//show the lists split (listone and listtwo)
-//show original list 
     return 0;
 }

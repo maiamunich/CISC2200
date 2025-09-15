@@ -1,3 +1,24 @@
+/*******************************************************************************
+ * File: Tree.cpp
+ * Author: Maia Munich
+ * Course: CISC 2200
+ * Description: Implementation of Tree class - A comprehensive Binary Search
+ *              Tree (BST) data structure with advanced operations including
+ *              traversal, analysis, and tree manipulation.
+ * 
+ * Algorithm Details:
+ * - Binary Search Tree property maintenance
+ * - Recursive tree operations for efficiency
+ * - In-order traversal for sorted output
+ * - Advanced tree analysis (leaves, ancestors, descendants)
+ * - Tree mirroring/swapping functionality
+ * 
+ * Time Complexity:
+ * - Insert/Search/Delete: O(log n) average, O(n) worst case
+ * - Traversal: O(n) - visits every node once
+ * - Tree Analysis: O(n) - examines all nodes
+ *******************************************************************************/
+
 /********************************************************
  * File : Tree.cpp
  * Description : Impelementation file of Tree class
@@ -6,56 +27,79 @@
 #include "Tree.h"
 #include <new>
 
+// Default Constructor: Initializes empty tree
+// Pre: None
+// Post: Tree is initialized with root = NULL
 Tree::Tree()
 {
    root = NULL;
 }
 
+// Copy Constructor: Creates deep copy of existing tree
+// Pre: originalTree is a valid Tree object
+// Post: New tree is created with identical structure and data
 Tree::Tree(const Tree& originalTree)
 {
    CopyTree(root, originalTree.root);
 }
 
+// Assignment Operator: Assigns one tree to another
+// Pre: Both trees are valid Tree objects
+// Post: Current tree is replaced with copy of originalTree
 void Tree::operator=(const Tree& originalTree)
 {
-    if (&originalTree == this)
+    if (&originalTree == this)  // Self-assignment check
        return;
 
-    Destroy(root);
-    CopyTree(root, originalTree.root);
+    Destroy(root);  // Clean up existing tree
+    CopyTree(root, originalTree.root);  // Create deep copy
 }
 
 
+// CopyTree: Recursively creates deep copy of tree structure
+// Pre: originalTree is valid (may be NULL)
+// Post: copy contains identical tree structure
 void Tree::CopyTree(TreeNode *&copy, const TreeNode* originalTree)
 {
 
     if (originalTree == NULL)
-        copy = NULL;
+        copy = NULL;  // Base case: empty subtree
     else
     {
-      copy = new TreeNode;
-      copy->info = originalTree->info;
-      CopyTree(copy->left, originalTree->left);
-      CopyTree(copy->right, originalTree->right);
+        // Create new node and copy data
+        copy = new TreeNode;
+        copy->info = originalTree->info;
+        
+        // Recursively copy left and right subtrees
+        CopyTree(copy->left, originalTree->left);
+        CopyTree(copy->right, originalTree->right);
     }
 }
 
-
+// Destructor: Cleans up all dynamically allocated memory
+// Pre: Tree object is being destroyed
+// Post: All nodes are deallocated
 Tree::~Tree()
 {
    MakeEmpty();  
 }
 
+// Destroy: Recursively deallocates all nodes in tree
+// Pre: tree is valid (may be NULL)
+// Post: All nodes are deallocated, tree becomes NULL
 void Tree::Destroy(TreeNode *& tree)
 {
-   if (tree!= NULL)
+   if (tree != NULL)
    {
-     Destroy(tree->left);
-     Destroy(tree->right);
-     delete tree;
+     Destroy(tree->left);   // Destroy left subtree
+     Destroy(tree->right);  // Destroy right subtree
+     delete tree;           // Delete current node
    } 
 }
 
+// MakeEmpty: Removes all nodes from tree
+// Pre: Tree has been initialized
+// Post: Tree is empty (root = NULL)
 void Tree::MakeEmpty()
 {
    Destroy(root);
